@@ -10,8 +10,7 @@ const getFormFields = require('./../../../lib/get-form-fields.js')
 
 const onSignUp = event => {
   event.preventDefault()
-  const credentials = getFormFields(this)
-
+  const credentials = getFormFields(event.target)
 
   api.signUp(credentials)
   // If succeed:
@@ -22,7 +21,7 @@ const onSignUp = event => {
 
 const onSignIn = event => {
   event.preventDefault()
-  const credentials = getFormFields(this)
+  const credentials = getFormFields(event.target)
 
   api.signIn(credentials)
   // If succeed:
@@ -44,7 +43,7 @@ const onSignOut = event => {
 const onChangePassword = event => {
   event.preventDefault()
   const form = event.target
-  const passwords = getFormFields(this)
+  const passwords = getFormFields(event.target)
 
   api.changePassword(passwords)
   // If succeed:

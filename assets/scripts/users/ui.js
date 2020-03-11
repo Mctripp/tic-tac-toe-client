@@ -6,6 +6,7 @@
 // SUCCESSES ------------------------
 
 const onSignUpSuccess = responseData => {
+  console.log("signUp success")
   // Do we auto sign-in? if yes:
   //Hide welcome text, sign in/up form
   $(".welcome-text").addClass("hidden")
