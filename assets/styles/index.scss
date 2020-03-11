@@ -1,6 +1,6 @@
 @import '~bootstrap/scss/bootstrap';
 
-body {
+html, body {
   height: 100%;
 }
 
@@ -10,6 +10,8 @@ main {
   width: 75%;
   height: 75%;
   margin-left: 12.5%;
+  align-items: stretch;
+  justify-content: space-between;
   background: #EEE;
 }
 
@@ -25,24 +27,8 @@ footer {
   border: 1px black solid;
 }
 
-.box-top, .box-mid-x {
-  margin-bottom: 2%;
-}
-
-.box-bottom, .box-mid-x {
-  margin-top: 2%;
-}
-
-.box-left, .box-mid-y {
-  margin-right: 2%;
-}
-
-.box-right, .box-mid-y {
-  margin-left: 2%;
-}
-
 main div {
-  width: calc(100%/3);
-  height: calc(100%/3);
+  width: calc(100%/3 - 1%);
+  height: calc(100%/3 - 1%);
   border: 1px solid black;
 }
