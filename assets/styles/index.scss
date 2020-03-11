@@ -5,6 +5,10 @@ html, body {
   background: #AAA;
 }
 
+h1, form {
+  display: inline-block;
+}
+
 main {
   width: 65%;
   height: 65%;
