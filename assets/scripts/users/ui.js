@@ -1,6 +1,6 @@
 'use strict'
 
-//Handle all UI changes:
+// Handle all UI changes:
 // SUCCESSES ------------------------
 
 onGetGamesSuccess = responseData => {
