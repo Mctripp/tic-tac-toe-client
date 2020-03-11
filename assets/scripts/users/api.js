@@ -9,7 +9,7 @@
 // GET user's games[?over=], over is bool
 const getGames = (over) => {
 
-} //getGames
+} // getGames
 
 // POST game; create new game for user (?)
 const newGame = () => {
