@@ -23,6 +23,9 @@ main div {
   width: calc(100%/3 - 2%/3);
   height: calc(100%/3 - 2%/3);
   background: white;
+  &:hover {
+    background: #FFFACD;
+  }
 }
 
 .box-left, .box-mid-y {
