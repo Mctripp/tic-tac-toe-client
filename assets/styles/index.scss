@@ -7,28 +7,35 @@ html, body {
 main {
   display: flex;
   flex-wrap: wrap;
-  width: 75%;
-  height: 75%;
-  margin-left: 12.5%;
+  width: 65%;
+  height: 65%;
+  margin: 5% 17.5%;
   align-items: stretch;
-  justify-content: space-between;
-  background: #EEE;
+  background: #CCC;
 }
 
 header {
-  height: 15%;
+  height: 10%;
+}
+
+main div {
+  width: calc(100%/3 - 2%/3);
+  height: calc(100%/3 - 2%/3);
+  border: 1px solid black;
+  background: white;
+}
+
+.box-left, .box-mid-y {
+  margin-right: 1%;
+}
+
+.box-top, .box-mid-x {
+  margin-bottom: 1%;
 }
 
 footer {
   width: 100%;
-  position: absolute;
-  height: 10%;
+  height: 15%;
   bottom: 0;
   border: 1px black solid;
-}
-
-main div {
-  width: calc(100%/3 - 1%);
-  height: calc(100%/3 - 1%);
-  border: 1px solid black;
 }
