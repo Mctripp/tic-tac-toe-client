@@ -12,7 +12,7 @@ h1, form {
 main {
   width: 65%;
   height: 65%;
-  margin: 5% 17.5%;
+  margin: 5% 0 5% 17.5%;
   text-align: center;
 }
 
@@ -56,6 +56,10 @@ footer {
   height: 15%;
   bottom: 0;
   border: 1px black solid;
+}
+
+.scoreboard {
+  display: inline;
 }
 
 .hidden {
