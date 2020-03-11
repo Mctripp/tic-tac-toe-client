@@ -6,6 +6,25 @@
 
 // Handle all user database access (AJAX):
 
+// USERS ---------------------------------
+
+// Sign-up new user:
+const signUp = (email, pw, pwConfirm) {
+
+} // signUp
+
+// Sign in existing user:
+const signIn = (email, pw) {
+
+} // signIn
+
+// Change password:
+const changePassword = (email, oldPw, newPw) {
+
+} // changePassword
+
+// GAMES --------------------------------
+
 // GET user's games[?over=], over is bool
 const getGames = (over) => {
 
@@ -30,5 +49,8 @@ module.exports = {
   getGames,
   newGame,
   findGame,
-  updateGame
+  updateGame,
+  signUp,
+  signIn,
+  changePassword
 }
