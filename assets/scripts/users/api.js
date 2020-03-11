@@ -49,7 +49,7 @@ const changePassword = (oldPw, newPw) => {
 const getGames = (over) => {
   return $.ajax({
     url: "",
-    method:
+    method: "GET"
   }) // return
 } // getGames
 
@@ -57,7 +57,8 @@ const getGames = (over) => {
 const newGame = () => {
   return $.ajax({
     url: "",
-    method:
+    data: "{}",
+    method: "POST"
   }) // return
 } //newGame
 
@@ -65,15 +66,16 @@ const newGame = () => {
 const findGame = (id) => {
   return $.ajax({
     url: "",
-    method:
+    method: "GET"
   }) // return
 } //findGame
 
 // PATCH specific game, updated from game progess/delta
-const updateGame = (id) => {
+const updateGame = (gameDelta) => {
   return $.ajax({
     url: "",
-    method:
+    data: gameDelta,
+    method: "PATCH"
   }) // return
 } //updateGame
 
