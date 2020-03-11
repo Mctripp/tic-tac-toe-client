@@ -5,6 +5,7 @@
 // with a status of 401 Unauthorized.
 
 const config = require('../config.js')
+const store = require('../store.js')
 
 // Handle all user database access (AJAX):
 

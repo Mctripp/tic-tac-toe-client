@@ -5,6 +5,7 @@
 // with a status of 401 Unauthorized.
 
 const config = require('../config.js')
+const store = require('../store.js')
 
 // Handle all user database access (AJAX):
 
@@ -12,8 +13,8 @@ const config = require('../config.js')
 const signUp = (credentials) => {
   return $.ajax({
     url: config.apiUrl + "/sign-up",
-    data: credentials,
-    method: "POST"
+    method: "POST",
+    credentials
   }) // return
 } // signUp
 
@@ -21,8 +22,8 @@ const signUp = (credentials) => {
 const signIn = (credentials) => {
   return $.ajax({
     url: config.apiUrl + "/sign-in",
-    data: credentials,
-    method: "POST"
+    method: "POST",
+    credentials
   }) // return
 } // signIn
 
@@ -30,16 +31,22 @@ const signIn = (credentials) => {
 const signOut = () => {
   return $.ajax({
     url: config.apiUrl + "/sign-out",
-    method: "DELETE"
+    method: "DELETE",
+    headers: {
+          Authorization: 'Token token=' + store.user.token
+        }
   }) // return
 } // signOut
 
 // Change password: Must include user's token in Header
-const changePassword = (oldPw, newPw) => {
+const changePassword = (data) => {
   return $.ajax({
     url: config.apiUrl + "/change-password",
-    data: "",
-    method: "PATCH"
+    method: "PATCH",
+    headers: {
+          Authorization: 'Token token=' + store.user.token
+        },
+        data
   }) // return
 } // changePassword
 
