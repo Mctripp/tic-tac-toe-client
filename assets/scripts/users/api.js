@@ -9,7 +9,7 @@
 // USERS ---------------------------------
 
 // Sign-up new user:
-const signUp = (email, pw, pwConfirm) => {
+const signUp = (credentials) => {
   return $.ajax({
     url: "",
     data: "",
@@ -18,7 +18,7 @@ const signUp = (email, pw, pwConfirm) => {
 } // signUp
 
 // Sign in existing user:
-const signIn = (email, pw) => {
+const signIn = (credentials) => {
   return $.ajax({
     url: "",
     data:"",
@@ -26,7 +26,7 @@ const signIn = (email, pw) => {
   }) // return
 } // signIn
 
-// Sign out:
+// Sign out: Must include user's token in Header
 const signOut = () => {
   return $.ajax({
     url: "",
@@ -34,8 +34,8 @@ const signOut = () => {
   }) // return
 } // signOut
 
-// Change password:
-const changePassword = (email, oldPw, newPw) => {
+// Change password: Must include user's token in Header
+const changePassword = (oldPw, newPw) => {
   return $.ajax({
     url: "",
     data:"",
