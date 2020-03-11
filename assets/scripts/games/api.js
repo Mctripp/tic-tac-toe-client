@@ -4,12 +4,14 @@
 // Authorization: Token token=<token> or they will be rejected
 // with a status of 401 Unauthorized.
 
+const config = require('../config.js')
+
 // Handle all user database access (AJAX):
 
-// GET user's games[?over=], over is bool
+// GET user's games[?over=], over is bool (?)
 const getGames = (over) => {
   return $.ajax({
-    url: "",
+    url: config.apiUrl + "/games",
     method: "GET"
   }) // return
 } // getGames
@@ -17,7 +19,7 @@ const getGames = (over) => {
 // POST game; create new game for user (?)
 const newGame = () => {
   return $.ajax({
-    url: "",
+    url: config.apiUrl + "/games",
     data: "{}",
     method: "POST"
   }) // return
@@ -26,7 +28,7 @@ const newGame = () => {
 // GET specific game
 const findGame = (id) => {
   return $.ajax({
-    url: "",
+    url: config.apiUrl + `/games${id}`,
     method: "GET"
   }) // return
 } //findGame
@@ -34,7 +36,7 @@ const findGame = (id) => {
 // PATCH specific game, updated from game progess/delta
 const updateGame = (gameDelta) => {
   return $.ajax({
-    url: "",
+    url: config.apiUrl + `/games${gameDelta[id]}`,
     data: gameDelta,
     method: "PATCH"
   }) // return
