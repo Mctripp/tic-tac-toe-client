@@ -19,14 +19,10 @@ header {
   height: 10%;
 }
 
-main div:not(.dummy) {
+main div {
   width: calc(100%/3 - 2%/3);
   height: calc(100%/3 - 2%/3);
   background: white;
-}
-
-.dummy {
-  margin-top: 100%;
 }
 
 .box-left, .box-mid-y {
