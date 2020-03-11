@@ -1,11 +1,16 @@
 @import '~bootstrap/scss/bootstrap';
 
+body {
+  height: 100%;
+}
+
 main {
   display: flex;
   flex-wrap: wrap;
   width: 75%;
   height: 75%;
   margin-left: 12.5%;
+  background: #EEE;
 }
 
 header {
@@ -13,6 +18,7 @@ header {
 }
 
 footer {
+  width: 100%;
   position: absolute;
   height: 10%;
   bottom: 0;
