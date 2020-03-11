@@ -28,6 +28,16 @@ const onSignIn = event => {
     .catch(ui.onSignInFailure)
 } //onSignIn
 
+const onSignOut = event => {
+  event.preventDefault()
+
+  api.signOut()
+  // If succeed:
+    .then(ui.onSignOutSuccess)
+  // If fail:
+    .catch(ui.onSignOutFailure)
+} //onSignOut
+
 const onChangePassword = event => {
   event.preventDefault()
 
@@ -83,6 +93,7 @@ const onUpdateGame = event => {
 module.exports = {
   onSignUp,
   onSignIn,
+  onSignOut,
   onChangePassword,
   onGetGames,
   onNewGame,
