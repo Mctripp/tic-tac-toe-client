@@ -26,10 +26,10 @@
             <input name="credentials[password]" type="password" value="password">
             <input name="credentials[password_confirmation]" type="password" value="confirm password">
           </form>
-          <form id="sign-out">
+          <form id="sign-out" class=".hidden">
             <button>Sign out</button>
           </form>
-          <form id="change-password">
+          <form id="change-password" class=."hidden">
             <button>Change Password</button>
             <input name="passwords[oldPw]" type="password" value="password">
             <input name="passwords[newPw]" type="password" value="new password">
@@ -37,6 +37,7 @@
         </nav>
       </header>
       <main>
+      <div class=".hidden .tictactoe">
         <div class="box-top box-left">
         </div>
         <div class="box-top box-mid-y">
@@ -55,6 +56,7 @@
         </div>
         <div class="box-bottom box-right">
         </div>
+      </div>
       </main>
       <footer>This is a footer</footer>
     </body>
