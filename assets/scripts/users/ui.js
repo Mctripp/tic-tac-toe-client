@@ -13,6 +13,10 @@ const onSignInSuccess = responseData => {
 
 } //onSignInSuccess
 
+const onSignOutSuccess = responseData => {
+
+} //onSignOutSuccess
+
 const onChangePasswordSuccess = responseData => {
 
 } //onChangePasswordSuccess
@@ -26,6 +30,10 @@ const onSignUpFailure = responseData => {
 const onSignInFailure = responseData => {
 
 } //onSignInFailure
+
+const onSignOutFailure = responseData => {
+
+} //onSignOutFailure
 
 const onChangePasswordFailure = responseData => {
 
