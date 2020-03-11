@@ -7,11 +7,12 @@ html, body {
 main {
   display: flex;
   flex-wrap: wrap;
+  position: relative;
   width: 65%;
+  height: 65%;
   margin: 5% 17.5%;
   align-items: stretch;
   background: #CCC;
-  padding-top: 100%;
 }
 
 header {
@@ -22,6 +23,10 @@ main div {
   width: calc(100%/3 - 2%/3);
   height: calc(100%/3 - 2%/3);
   background: white;
+}
+
+.dummy {
+  margin-top: 100%;
 }
 
 .box-left, .box-mid-y {
