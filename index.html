@@ -15,9 +15,17 @@
       <header>
         <h1>Tic-Tac-Toe Game</h1>
         <nav>
-          <a href="#">Sign in</a>
-          <a href="#">Sign out</a>
-          <a href="#">Change password</a>
+          <form id="sign-in">
+            <button>Sign in</button>
+            <input name="credentials[email]" type="text" value="email">
+            <input name="credentials[password]" type="password" value="password">
+          </form>
+          <form id="sign-up">
+            <button>Sign up</button>
+            <input name="credentials[email]" type="text" value="email">
+            <input name="credentials[password]" type="password" value="password">
+            <input name="credentials[password_confirmation]" type="password" value="confirm password">
+          </form>
         </nav>
       </header>
       <main>
