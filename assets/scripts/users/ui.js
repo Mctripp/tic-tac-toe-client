@@ -1,43 +1,80 @@
 'use strict'
 
 // Handle all UI changes:
+
+// USERS ============================
 // SUCCESSES ------------------------
 
-onGetGamesSuccess = responseData => {
+const onSignUpSuccess = responseData => {
+
+} //onSignUpSuccess
+
+const onSignInSuccess = responseData => {
+
+} //onSignInSuccess
+
+const onChangePasswordSuccess = responseData => {
+
+} //onChangePasswordSuccess
+
+// FAILURES -------------------------
+
+const onSignUpFailure = responseData => {
+
+} //onSignUpFailure
+
+const onSignInFailure = responseData => {
+
+} //onSignInFailure
+
+const onChangePasswordFailure = responseData => {
+
+} //onChangePasswordFailure
+
+// GAMES ============================
+// SUCCESSES ------------------------
+
+const onGetGamesSuccess = responseData => {
 
 } //onGetGamesSuccess
 
-onNewGameSuccess = responseData => {
+const onNewGameSuccess = responseData => {
 
 } //onNewGameSuccess
 
-onFindGameSuccess = responseData => {
+const onFindGameSuccess = responseData => {
 
 } //onFindGameSuccess
 
-onUpdateGameSuccess = responseData => {
+const onUpdateGameSuccess = responseData => {
 
 } //onUpdateGameSuccess
 
 //FAILURES --------------------------
 
-onGetGamesFailure = responseData => {
+const onGetGamesFailure = responseData => {
 
 } //onGetGamesFailure
 
-onNewGameFailure = responseData => {
+const onNewGameFailure = responseData => {
 
 } //onNewGameFailure
 
-onFindGameFailure = responseData => {
+const onFindGameFailure = responseData => {
 
 } //onFindGameFailure
 
-onUpdateGameFailure = responseData => {
+const onUpdateGameFailure = responseData => {
 
 } //onUpdateGameFailure
 
 module.exports = {
+  onSignUpSuccess,
+  onSignUpFailure,
+  onSignInSuccess,
+  onSignInFailure,
+  onChangePasswordSuccess,
+  onChangePasswordFailure,
   onGetGamesSuccess,
   onGetGamesFailure,
   onNewGameSuccess,
