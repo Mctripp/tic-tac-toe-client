@@ -1,1 +1,26 @@
 @import '~bootstrap/scss/bootstrap';
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.box-top .box-mid-x {
+  margin-bottom: 1%;
+}
+
+.box-bottom .box-mid-x {
+  margin-top: 1%;
+}
+
+.box-left .box-mid-y {
+  margin-right: 1%;
+}
+
+.box-right .box-mid-y {
+  margin-left: 1%;
+}
+
+main div {
+  width: calc(100%/3);
+}
