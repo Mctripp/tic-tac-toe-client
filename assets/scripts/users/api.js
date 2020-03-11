@@ -14,7 +14,7 @@ const signUp = (credentials) => {
   return $.ajax({
     url: config.apiUrl + "/sign-up",
     method: "POST",
-    credentials
+    data: credentials
   }) // return
 } // signUp
 
@@ -23,7 +23,7 @@ const signIn = (credentials) => {
   return $.ajax({
     url: config.apiUrl + "/sign-in",
     method: "POST",
-    credentials
+    data: credentials
   }) // return
 } // signIn
 
@@ -33,20 +33,20 @@ const signOut = () => {
     url: config.apiUrl + "/sign-out",
     method: "DELETE",
     headers: {
-          Authorization: 'Token token=' + store.user.token
-        }
+              Authorization: 'Token token=' + store.user.token
+            }
   }) // return
 } // signOut
 
 // Change password: Must include user's token in Header
-const changePassword = (data) => {
+const changePassword = (passwords) => {
   return $.ajax({
     url: config.apiUrl + "/change-password",
     method: "PATCH",
     headers: {
           Authorization: 'Token token=' + store.user.token
         },
-        data
+        data: passwords
   }) // return
 } // changePassword
 

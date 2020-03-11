@@ -9,7 +9,8 @@ const getMarkType = () => {
 const markGrid = event => {
   const boxId = event.target.id
   $(`#${boxId}`).children().removeClass("hidden")
-  $(`#${boxId}`).children().attr("src", "./../../../public/images/O.jpg")
+  $(`#${boxId}`).children().attr("src", "./../../../public/images/X.jpg")
+  $(`#${boxId}`).unbind();
 } //markGrid
 
 module.exports = {

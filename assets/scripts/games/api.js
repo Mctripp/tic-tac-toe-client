@@ -13,7 +13,10 @@ const store = require('../store.js')
 const getGames = (over) => {
   return $.ajax({
     url: config.apiUrl + "/games",
-    method: "GET"
+    method: "GET",
+    headers: {
+              Authorization: 'Token token=' + store.user.token
+            }
   }) // return
 } // getGames
 
@@ -22,7 +25,10 @@ const newGame = () => {
   return $.ajax({
     url: config.apiUrl + "/games",
     data: "{}",
-    method: "POST"
+    method: "POST",
+    headers: {
+              Authorization: 'Token token=' + store.user.token
+            }
   }) // return
 } //newGame
 
@@ -30,7 +36,10 @@ const newGame = () => {
 const findGame = (id) => {
   return $.ajax({
     url: config.apiUrl + `/games${id}`,
-    method: "GET"
+    method: "GET",
+    headers: {
+              Authorization: 'Token token=' + store.user.token
+            }
   }) // return
 } //findGame
 
@@ -39,7 +48,10 @@ const updateGame = (gameDelta) => {
   return $.ajax({
     url: config.apiUrl + `/games${gameDelta[id]}`,
     data: gameDelta,
-    method: "PATCH"
+    method: "PATCH",
+    headers: {
+              Authorization: 'Token token=' + store.user.token
+            }
   }) // return
 } //updateGame
 

@@ -1,26 +1,22 @@
 'use strict'
 
+const store = require("./../store.js")
+
 // Handle all UI changes:
 
 // USERS ============================
 // SUCCESSES ------------------------
 
 const onSignUpSuccess = responseData => {
-  // Do we auto sign-in? if yes:
-  //Hide welcome text, sign in/up form
-  $(".welcome-text").addClass("hidden")
-  $("#sign-up").addClass("hidden")
-  $("#sign-in").addClass("hidden")
-  //Show board, sign out/change pw form, scoreboard
-  $(".tictactoe").removeClass("hidden")
-  $("#change-password").removeClass("hidden")
-  $("#sign-out").removeClass("hidden")
-  $(".scoreboard").removeClass("hidden")
-
-  $(".error-message").addClass("hidden")
+  //Nothing (?)
+  $(".error-message").removeClass("hidden")
+  $(".error-message").removeClass("failure")
+  $(".error-message").addClass("success")
+  $(".error-message").text("Sign up success!")
 } //onSignUpSuccess
 
 const onSignInSuccess = responseData => {
+  store.user = responseData.user
   //Hide welcome text, sign in/up form
   $(".welcome-text").addClass("hidden")
   $("#sign-up").addClass("hidden")
