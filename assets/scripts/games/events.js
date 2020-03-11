@@ -1,5 +1,9 @@
 'use strict'
 
+const ui = require('./ui.js')
+const api = require('./api.js')
+const getFormFields = require('./../../../lib/get-form-fields.js')
+
 const onGetGames = event => {
   event.preventDefault()
 
