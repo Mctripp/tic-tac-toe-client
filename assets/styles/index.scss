@@ -2,6 +2,7 @@
 
 html, body {
   height: 100%;
+  background: #AAA;
 }
 
 main {
@@ -17,11 +18,13 @@ main {
 
 header {
   height: 10%;
+  background: #222;
+  color: #EEE;
 }
 
 main div {
-  width: calc(100%/3 - 2%/3);
-  height: calc(100%/3 - 2%/3);
+  width: calc(98%/3);
+  height: calc(98%/3);
   background: white;
   &:hover {
     background: #FFFACD;
@@ -37,6 +40,8 @@ main div {
 }
 
 footer {
+  background: #222;
+  color: #EEE;
   width: 100%;
   height: 15%;
   bottom: 0;
