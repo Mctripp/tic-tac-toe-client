@@ -6,6 +6,40 @@ const getFormFields = require('./../../../lib/get-form-fields.js')
 
 //Handle all clicks, form submissions, etc.:
 
+// USERS -------------------
+
+const onSignUp = event => {
+  event.preventDefault()
+
+  api.signUp()
+  // If succeed:
+    .then(ui.onSignUpSuccess)
+  // If fail:
+    .catch(ui.onSignUpFailure)
+} //onSignUp
+
+const onSignIn = event => {
+  event.preventDefault()
+
+  api.signIn()
+  // If succeed:
+    .then(ui.onSignInSuccess)
+  // If fail:
+    .catch(ui.onSignInFailure)
+} //onSignIn
+
+const onChangePassword = event => {
+  event.preventDefault()
+
+  api.changePassword()
+  // If succeed:
+    .then(ui.onChangePasswordSuccess)
+  // If fail:
+    .catch(ui.onChangePasswordFailure)
+} //onChangePassword
+
+// GAMES -------------------
+
 const onGetGames = event => {
   event.preventDefault()
 
@@ -47,6 +81,9 @@ const onUpdateGame = event => {
 } //onUpdateGame
 
 module.exports = {
+  onSignUp,
+  onSignIn,
+  onChangePassword,
   onGetGames,
   onNewGame,
   onFindGame,
