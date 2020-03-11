@@ -9,40 +9,72 @@
 // USERS ---------------------------------
 
 // Sign-up new user:
-const signUp = (email, pw, pwConfirm) {
-
+const signUp = (email, pw, pwConfirm) => {
+  return $.ajax({
+    url: "",
+    data: "",
+    method: "POST"
+  }) // return
 } // signUp
 
 // Sign in existing user:
-const signIn = (email, pw) {
-
+const signIn = (email, pw) => {
+  return $.ajax({
+    url: "",
+    data:"",
+    method: "POST"
+  }) // return
 } // signIn
 
-// Change password:
-const changePassword = (email, oldPw, newPw) {
+// Sign out:
+const signOut = () => {
+  return $.ajax({
+    url: "",
+    method: "DELETE"
+  }) // return
+} // signOut
 
+// Change password:
+const changePassword = (email, oldPw, newPw) => {
+  return $.ajax({
+    url: "",
+    data:"",
+    method: "PATCH"
+  }) // return
 } // changePassword
 
 // GAMES --------------------------------
 
 // GET user's games[?over=], over is bool
 const getGames = (over) => {
-
+  return $.ajax({
+    url: "",
+    method:
+  }) // return
 } // getGames
 
 // POST game; create new game for user (?)
 const newGame = () => {
-
+  return $.ajax({
+    url: "",
+    method:
+  }) // return
 } //newGame
 
 // GET specific game
 const findGame = (id) => {
-
+  return $.ajax({
+    url: "",
+    method:
+  }) // return
 } //findGame
 
 // PATCH specific game, updated from game progess/delta
 const updateGame = (id) => {
-
+  return $.ajax({
+    url: "",
+    method:
+  }) // return
 } //updateGame
 
 module.exports = {
@@ -52,5 +84,6 @@ module.exports = {
   updateGame,
   signUp,
   signIn,
+  signOut,
   changePassword
 }
