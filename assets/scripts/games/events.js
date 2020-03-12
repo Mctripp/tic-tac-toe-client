@@ -26,8 +26,9 @@ const onNewGame = event => {
 
 const onFindGame = event => {
   event.preventDefault()
+  const id = ""
 
-  api.findGame()
+  api.findGame(id)
   // If succeed:
     .then(ui.onFindGameSuccess)
   // If fail:
@@ -36,8 +37,9 @@ const onFindGame = event => {
 
 const onUpdateGame = event => {
   event.preventDefault()
+  const gameDelta = ""
 
-  api.updateGames()
+  api.updateGames(gameDelta)
   // If succeed:
     .then(ui.onUpdateGameSuccess)
   // If fail:
