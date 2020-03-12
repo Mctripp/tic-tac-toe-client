@@ -19,5 +19,6 @@ $(() => {
   // add event for when player clicks on grid square
   // event should point to function that is in game engine
   $('.box').on('click', engine.markGrid)
+  // Add event for checking if someone has won
   $('.box').on('click', engine.checkWin)
 })
