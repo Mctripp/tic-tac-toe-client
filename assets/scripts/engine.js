@@ -103,14 +103,14 @@ const checkWin = event => {
     $('.box').css('opacity', 0.5)
     $(`.${winClass}>img`).css('opacity', 1)
     $(`.${winClass}`).css('opacity', 1)
-    $(`.${winClass}`).css('border', 'yellow dashed 2px')
+    $(`.${winClass}`).css('border', 'yellow solid 2px')
     $('.box').unbind()
   } // if
   // If nobody has won when all squares are filled, fade boxes and end game
   if (count === 9) {
     $('.error-message').text("Nobody wins! It's a tie.")
     $('.error-message').removeClass('hidden')
-    $('.error-message').addClass('failure')
+    $('.error-message').addClass('success')
     $('img').css('opacity', 0.5)
     $('.box').css('opacity', 0.5)
   }

@@ -1,8 +1,15 @@
 @import '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css?family=Lobster|Prompt&display=swap');
+
+$colorBlue: #0B0C10;
+$colorBlue2: #1F2833;
+$colorGray: #C5C6C7;
+$colorThing: #66FCF1;
+$colorThing2: #45A29E;
 
 html, body {
   height: 100%;
-  background: #AAA;
+  background: $colorBlue2;
 }
 
 h1, form {
@@ -16,6 +23,11 @@ main {
   text-align: center;
   display: flex;
   flex-wrap: wrap;
+}
+
+.text-block {
+  font-family: 'Prompt', sans-serif;
+  color: $colorGray;
 }
 
 img {
@@ -33,24 +45,27 @@ img {
   height: calc(98%/3);
   background: white;
   &:hover {
-    background: #FFFACD;
+    background: $colorBlue2;
   }
 }
 
 .tictactoe {
+  padding: 2.5%;
   display: flex;
   flex-wrap: wrap;
   position: relative;
   width: 100%;
   height: 65%;
   align-items: stretch;
-  background: #CCC;
+  background: $colorGray;
+  border-radius: 2%;
 }
 
 header {
   height: 10%;
-  background: #222;
-  color: #EEE;
+  background: $colorBlue;
+  font-family: 'Lobster', sans-serif;
+  color: $colorThing;
 }
 
 .box-left, .box-mid-y {
@@ -62,8 +77,8 @@ header {
 }
 
 footer {
-  background: #222;
-  color: #EEE;
+  background: $colorBlue;
+  color: $colorThing2;
   width: 100%;
   height: 15%;
   bottom: 0;
@@ -82,10 +97,6 @@ footer {
   color: red;
 }
 
-.clickedBox {
-  background-color: #F00;
-}
-
 .success {
-  color: green;
+  color: $colorThing;
 }
