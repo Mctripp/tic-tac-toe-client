@@ -39,7 +39,7 @@ const onUpdateGame = event => {
   event.preventDefault()
   const gameDelta = ""
 
-  api.updateGames(gameDelta)
+  api.updateGame(gameDelta)
   // If succeed:
     .then(ui.onUpdateGameSuccess)
   // If fail:

@@ -4,7 +4,7 @@
 // const example = require('./example')
 
 const userEvents = require('./users/events.js')
-// const gameEvents = require('./games/events.js')
+const gameEvents = require('./games/events.js')
 const engine = require('./engine.js')
 
 // use require without a reference to ensure a file is bundled
@@ -20,4 +20,7 @@ $(() => {
   $('.box').on('click', engine.markGrid)
   // Add event for checking if someone has won
   $('.box').on('click', engine.checkWin)
+  $('#new-game').on('click', gameEvents.onNewGame)
+  $('#get-games').on('click', gameEvents.onGetGames)
+  $('#find-game').on('submit', gameEvents.onFindGame)
 })

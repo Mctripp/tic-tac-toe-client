@@ -1,6 +1,9 @@
 'use strict'
 
 const store = require('./../store.js')
+const gamesApi = require('./../games/api.js')
+const gamesUi = require('./../games/ui.js')
+const gamesEvents = require('./../games/events.js')
 
 // Handle all UI changes:
 
@@ -17,15 +20,20 @@ const onSignUpSuccess = responseData => {
 
 const onSignInSuccess = responseData => {
   store.user = responseData.user
-  // Hide welcome text, sign in/up form
+  // const otherData = gamesApi.getGames()
+  // const otherOtherData = otherData//.responseJSON//.games
+  // console.log(otherData)
+  // console.log(otherOtherData)
+  // Hide welcome text, sign iwn/up form
   $('.welcome-text').addClass('hidden')
   $('#sign-up').addClass('hidden')
   $('#sign-in').addClass('hidden')
   // Show board, sign out/change pw form, scoreboard
   $('.tictactoe').removeClass('hidden')
+  $(".scoreboard").removeClass('hidden')
   $('#change-password').removeClass('hidden')
   $('#sign-out').removeClass('hidden')
-  $('.scoreboard').removeClass('hidden')
+  $('.game-options').removeClass('hidden')
 
   $('.error-message').addClass('hidden')
 } // onSignInSuccess
@@ -39,7 +47,7 @@ const onSignOutSuccess = responseData => {
   $('.tictactoe').addClass('hidden')
   $('#change-password').addClass('hidden')
   $('#sign-out').addClass('hidden')
-  $('.scoreboard').addClass('hidden')
+  $('.game-options').addClass('hidden')
 
   $('.error-message').addClass('hidden')
 } // onSignOutSuccess

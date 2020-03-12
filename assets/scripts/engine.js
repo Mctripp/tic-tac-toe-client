@@ -1,15 +1,12 @@
 'use strict'
 
-// determine which mark to use
-// const getMarkType = () => {
-
-// } // getMarkType
-
+const gamesApi = require('./games/api.js')
 let count = 0
 const board = ['', '', '', '', '', '', '', '', '']
 
 const xImg = './../../../public/images/X.jpg'
 const oImg = './../../../public/images/O.jpg'
+
 // Get board[] index from box ID
 const boxIdToNum = id => {
   return parseInt(id.charAt(3), 10)
@@ -18,6 +15,7 @@ const boxIdToNum = id => {
 // mark clicked grid with player's mark, disable event on square
 const markGrid = event => {
   // Get clicked box ID
+
   const boxId = event.target.id
   // Get board space index
   const boardNum = boxIdToNum(boxId)
@@ -86,12 +84,25 @@ const checkWin = event => {
   if (count < 5) {
     return
   } // if
+
+  //Make object to update game API
+  const updateGameObj = {
+      "game": {
+        "cell": {
+          "index": 0,
+          "value": ""
+        },
+      "over": false
+    }
+  }
   // Get id of clicked box
   const boxId = event.target.id
+  updateGameObj.game.cell.index = boxIdToNum(boxId)
   // Get list of classes associated with that box
   const classList = $(`#${boxId}`).attr('class').split(/\s+/)
   // Get symbol of the box that was clicked
   const symbol = board[boxIdToNum(boxId)]
+  updateGameObj.game.cell.value = symbol
   // See if the player has won
   const winClass = checkClassWin(classList, symbol)
   // If the player wins, display message and visuals
@@ -105,6 +116,7 @@ const checkWin = event => {
     $(`.${winClass}`).css('opacity', 1)
     $(`.${winClass}`).css('border', 'yellow solid 2px')
     $('.box').unbind()
+    updateGameObj.game.over = true
   } // if
   // If nobody has won when all squares are filled, fade boxes and end game
   if (count === 9) {
@@ -113,7 +125,9 @@ const checkWin = event => {
     $('.error-message').addClass('success')
     $('img').css('opacity', 0.5)
     $('.box').css('opacity', 0.5)
+    updateGameObj.game.over = true
   }
+  gamesApi.updateGame(updateGameObj)
 } // checkWin
 
 module.exports = {

@@ -11,7 +11,7 @@ const store = require('../store.js')
 
 // GET user's games[?over=], over is bool (?)
 const getGames = (over) => {
-  if (over === false) {
+  if (over === undefined) {
     return $.ajax({
       url: config.apiUrl + '/games',
       method: 'GET',
@@ -54,10 +54,10 @@ const findGame = (id) => {
 } // findGame
 
 // PATCH specific game, updated from game progess/delta
-const updateGame = (gameDelta) => {
+const updateGame = (obj) => {
   return $.ajax({
-    url: config.apiUrl + `/games${gameDelta}`,
-    data: gameDelta,
+    url: config.apiUrl + `/games/${store.game.id}`,
+    data: obj,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token

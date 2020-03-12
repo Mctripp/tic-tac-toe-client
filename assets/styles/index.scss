@@ -4,6 +4,7 @@
 $colorBlue: #0B0C10;
 $colorBlue2: #1F2833;
 $colorGray: #C5C6C7;
+$colorDarkGray: #A5A6A7;
 $colorLightBlue: #66FCF1;
 $colorLightBlue2: #45A29E;
 
@@ -14,6 +15,18 @@ html, body {
 
 h1, form {
   display: inline-block;
+}
+
+nav {
+  padding: 10px;
+}
+
+input[type=text], input[type=password] {
+  border-radius: 3px;
+  background-color: $colorGray;
+  &::selection {
+    background: $colorDarkGray;
+  }
 }
 
 .side-text {
@@ -28,6 +41,8 @@ h1, form {
   font-size: 2400%;
   bottom: 25%;
   left: 0;
+  user-select: none;
+  white-space: nowrap;
   //top: 50%;
 }
 
@@ -71,7 +86,7 @@ img {
 .box {
   width: calc(98%/3);
   height: calc(98%/3);
-  background: white;
+  background: $colorGray;
   box-shadow: 2px 3px $colorBlue;
   &:hover {
     background: $colorBlue2;
@@ -79,7 +94,7 @@ img {
 }
 
 header {
-  height: 10%;
+  //eight: 10%;
   background: $colorBlue;
   font-family: 'Lobster', sans-serif;
   color: $colorLightBlue;
@@ -87,7 +102,7 @@ header {
   box-shadow: 0 3px $colorLightBlue2;
 }
 
-header button {
+button {
   background: $colorBlue;
   background: $colorLightBlue2;
   border-color: $colorLightBlue;
@@ -110,11 +125,25 @@ footer {
   width: 100%;
   height: 15%;
   bottom: 0;
-  border: 1px black solid;
+  border-top: 3px solid $colorLightBlue2;
+}
+
+.game-options {
+  font-family: 'Lobster', sans-serif;
+  width: 100%;
+  padding: 10px;
+}
+
+.dropdown {
+  font-family: 'Prompt', sans-serif;
 }
 
 .scoreboard {
-  width: 100%;
+  display: inline;
+  position: absolute;
+  left: 0;
+  color: $colorGray;
+  text-shadow: 0 5px 3px $colorBlue;
 }
 
 .hidden {

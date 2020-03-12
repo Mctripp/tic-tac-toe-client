@@ -10,7 +10,7 @@ const store = require('../store.js')
 // Handle all user database access (AJAX):
 
 // Sign-up new user:
-const signUp = (credentials) => {
+const signUp = (credentials) => { 
   return $.ajax({
     url: config.apiUrl + '/sign-up',
     method: 'POST',

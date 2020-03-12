@@ -37,6 +37,7 @@
       </header>
       <main>
         <h1 class="side-text">Tic-Tac-Toe</h1>
+        <p class="scoreboard hidden">User scores will appear here.</p>
         <div class="text-block">
           <h3 class="welcome-text">Welcome to Tic-tac-toe!<h3></br>
           <h4 class="welcome-text">Please sign up or sign in above to begin.<h4>
@@ -72,12 +73,16 @@
           </div>
         </div>
       </main>
-      <div class="scoreboard">
-        <form id="scoreboard">
-          <button type="button" name="button">Create new game</button>
-          <button type="button" name="button">Do other thing I guess</button>
+      <div class="game-options hidden">
+        <button id="new-game" type="button" name="button">Create new game</button>
+        <button id="get-games" type="button" name="button">Get games</button>
+        <form id="find-game">
+          <button type="button" name="button">Find game</button>
+          <select class="dropdown">
+            <option value="default">Select game by ID...</option>
+          </select>
         </form>
       </div>
-      <footer></br></br><p>Contact info here</p></footer>
+      <footer></br></br><p><a href="#"></a><a href="#"></a>Contact info here</p></footer>
     </body>
 </html>
