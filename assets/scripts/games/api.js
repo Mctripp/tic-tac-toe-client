@@ -11,13 +11,23 @@ const store = require('../store.js')
 
 // GET user's games[?over=], over is bool (?)
 const getGames = (over) => {
+  if (over === false) {
+    return $.ajax({
+      url: config.apiUrl + '/games',
+      method: 'GET',
+      headers: {
+        Authorization: 'Token token=' + store.user.token
+      }
+    }) // return
+  }
+  // return games that are over
   return $.ajax({
-    url: config.apiUrl + '/games',
+    url: config.apiUrl + '/games[?over=]',
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
     }
-  }) // return
+  })
 } // getGames
 
 // POST game; create new game for user (?)
