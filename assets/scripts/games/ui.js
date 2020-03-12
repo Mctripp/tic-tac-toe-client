@@ -3,38 +3,38 @@
 // SUCCESSES ------------------------
 
 const onGetGamesSuccess = responseData => {
-  //Switch to game (?)
-} //onGetGamesSuccess
+  // Switch to game (?)
+} // onGetGamesSuccess
 
 const onNewGameSuccess = responseData => {
-  //Switch to new game (?)
-} //onNewGameSuccess
+  // Switch to new game (?)
+} // onNewGameSuccess
 
 const onFindGameSuccess = responseData => {
-  //Switch to found game (?)
-} //onFindGameSuccess
+  // Switch to found game (?)
+} // onFindGameSuccess
 
 const onUpdateGameSuccess = responseData => {
-  //End turn, remove interactivity from board
-} //onUpdateGameSuccess
+  // End turn, remove interactivity from board
+} // onUpdateGameSuccess
 
-//FAILURES --------------------------
+// FAILURES --------------------------
 
 const onGetGamesFailure = responseData => {
-  //Error msg
-} //onGetGamesFailure
+  // Error msg
+} // onGetGamesFailure
 
 const onNewGameFailure = responseData => {
-  //Error msg
-} //onNewGameFailure
+  // Error msg
+} // onNewGameFailure
 
 const onFindGameFailure = responseData => {
-  //Error msg
-} //onFindGameFailure
+  // Error msg
+} // onFindGameFailure
 
 const onUpdateGameFailure = responseData => {
-  //Error msg
-} //onUpdateGameFailure
+  // Error msg
+} // onUpdateGameFailure
 
 module.exports = {
   onGetGamesSuccess,

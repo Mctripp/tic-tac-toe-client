@@ -2,7 +2,7 @@
 
 const ui = require('./ui.js')
 const api = require('./api.js')
-const getFormFields = require('./../../../lib/get-form-fields.js')
+// const getFormFields = require('./../../../lib/get-form-fields.js')
 
 const onGetGames = event => {
   event.preventDefault()
@@ -12,7 +12,7 @@ const onGetGames = event => {
     .then(ui.onGetGamesSuccess)
   // If fail:
     .catch(ui.onGetGamesFailure)
-} //onGetGames
+} // onGetGames
 
 const onNewGame = event => {
   event.preventDefault()
@@ -22,7 +22,7 @@ const onNewGame = event => {
     .then(ui.onNewGameSuccess)
   // If fail:
     .catch(ui.onNewGameFailure)
-} //onNewGame
+} // onNewGame
 
 const onFindGame = event => {
   event.preventDefault()
@@ -32,7 +32,7 @@ const onFindGame = event => {
     .then(ui.onFindGameSuccess)
   // If fail:
     .catch(ui.onFindGameFailure)
-} //onFindGame
+} // onFindGame
 
 const onUpdateGame = event => {
   event.preventDefault()
@@ -42,7 +42,7 @@ const onUpdateGame = event => {
     .then(ui.onUpdateGameSuccess)
   // If fail:
     .catch(ui.onUpdateGameFailure)
-} //onUpdateGame
+} // onUpdateGame
 
 module.exports = {
   onGetGames,

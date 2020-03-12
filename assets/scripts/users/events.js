@@ -4,7 +4,7 @@ const ui = require('./ui.js')
 const api = require('./api.js')
 const getFormFields = require('./../../../lib/get-form-fields.js')
 
-//Handle all clicks, form submissions, etc.:
+// Handle all clicks, form submissions, etc.:
 
 // USERS -------------------
 
@@ -17,7 +17,7 @@ const onSignUp = event => {
     .then(ui.onSignUpSuccess)
   // If fail:
     .catch(ui.onSignUpFailure)
-} //onSignUp
+} // onSignUp
 
 const onSignIn = event => {
   event.preventDefault()
@@ -28,7 +28,7 @@ const onSignIn = event => {
     .then(ui.onSignInSuccess)
   // If fail:
     .catch(ui.onSignInFailure)
-} //onSignIn
+} // onSignIn
 
 const onSignOut = event => {
   event.preventDefault()
@@ -38,11 +38,11 @@ const onSignOut = event => {
     .then(ui.onSignOutSuccess)
   // If fail:
     .catch(ui.onSignOutFailure)
-} //onSignOut
+} // onSignOut
 
 const onChangePassword = event => {
   event.preventDefault()
-  const form = event.target
+  // const form = event.target
   const passwords = getFormFields(event.target)
 
   api.changePassword(passwords)
@@ -50,7 +50,7 @@ const onChangePassword = event => {
     .then(ui.onChangePasswordSuccess)
   // If fail:
     .catch(ui.onChangePasswordFailure)
-} //onChangePassword
+} // onChangePassword
 
 module.exports = {
   onSignUp,
