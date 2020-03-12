@@ -2,7 +2,7 @@
 
 const ui = require('./ui.js')
 const api = require('./api.js')
-// const getFormFields = require('./../../../lib/get-form-fields.js')
+const getFormFields = require('./../../../lib/get-form-fields.js')
 
 const onGetGames = event => {
   event.preventDefault()
@@ -26,9 +26,10 @@ const onNewGame = event => {
 
 const onFindGame = event => {
   event.preventDefault()
-  const id = ""
+  const currVal = $("#find-game").children("select").val()
+  console.log(currVal)
 
-  api.findGame(id)
+  api.findGame(currVal)
   // If succeed:
     .then(ui.onFindGameSuccess)
   // If fail:

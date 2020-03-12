@@ -16,6 +16,10 @@ const onGetGamesSuccess = responseData => {
   store.user.games = currGames
   let gamesWon = 0
   console.log(store.user.games)
+  $(".dropdown").empty()
+  $(".dropdown").append(
+    "<option value=\"default\">Select game by ID...</option>"
+  )
   for(let i = 0; i < currGames.length; i++) {
     console.log(currGames[i])
     if(currGames[i].over === true){

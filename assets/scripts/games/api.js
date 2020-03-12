@@ -45,7 +45,7 @@ const newGame = () => {
 // GET specific game
 const findGame = (id) => {
   return $.ajax({
-    url: config.apiUrl + `/games${id}`,
+    url: config.apiUrl + `/games/${id}`,
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
