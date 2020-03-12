@@ -84,14 +84,14 @@ const checkWin = (event, count, board) => {
     return
   } // if
 
-  //Make object to update game API
+  // Make object to update game API
   const updateGameObj = {
-      "game": {
-        "cell": {
-          "index": 0,
-          "value": ""
-        },
-      "over": false
+    'game': {
+      'cell': {
+        'index': 0,
+        'value': ''
+      },
+      'over': false
     }
   }
   // Get id of clicked box
