@@ -29,7 +29,6 @@ const onSignInSuccess = responseData => {
   $('#sign-up').addClass('hidden')
   $('#sign-in').addClass('hidden')
   // Show board, sign out/change pw form, scoreboard
-  $('.tictactoe').removeClass('hidden')
   $(".scoreboard").removeClass('hidden')
   $('#change-password').removeClass('hidden')
   $('#sign-out').removeClass('hidden')

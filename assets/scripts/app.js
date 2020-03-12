@@ -16,10 +16,6 @@ $(() => {
   $('#sign-up').on('submit', userEvents.onSignUp)
   $('#sign-out').on('submit', userEvents.onSignOut)
   $('#change-password').on('submit', userEvents.onChangePassword)
-  // add event for when player clicks on grid square
-  $('.box').on('click', engine.markGrid)
-  // Add event for checking if someone has won
-  $('.box').on('click', engine.checkWin)
   $('#new-game').on('click', gameEvents.onNewGame)
   $('#get-games').on('click', gameEvents.onGetGames)
   $('#find-game').on('submit', gameEvents.onFindGame)

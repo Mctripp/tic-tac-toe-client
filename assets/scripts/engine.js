@@ -1,8 +1,6 @@
 'use strict'
 
 const gamesApi = require('./games/api.js')
-let count = 0
-const board = ['', '', '', '', '', '', '', '', '']
 
 const xImg = './../../../public/images/X.jpg'
 const oImg = './../../../public/images/O.jpg'
@@ -13,9 +11,9 @@ const boxIdToNum = id => {
 } // boxIdToNum
 
 // mark clicked grid with player's mark, disable event on square
-const markGrid = event => {
+const markGrid = (event, count, board) => {
   // Get clicked box ID
-
+  console.log(count)
   const boxId = event.target.id
   // Get board space index
   const boardNum = boxIdToNum(boxId)
@@ -26,12 +24,12 @@ const markGrid = event => {
     // Make X image first time and every other
     $(`#${boxId}`).children().attr('src', xImg)
     // Store 'x' in board
-    board[boardNum] = 'x'
+    board.push('x')
   } else {
     // Make O image second time and every other
     $(`#${boxId}`).children().attr('src', oImg)
     // store 'o' in board
-    board[boardNum] = 'o'
+    board.push('o')
   } // if
   count++
   // Remove click events
@@ -74,12 +72,13 @@ const checkClassWin = (classList, symbol) => {
     // index, that symbol has 3 in a row.
     if (winArr.every(element => element === symbol)) {
       winClass = element
+      console.log(winClass)
     } // if
   }) // forEach
   return winClass
 } // checkClassWin
 
-const checkWin = event => {
+const checkWin = (event, count, board) => {
   // Cannot end game before turn 5, skip check
   if (count < 5) {
     return

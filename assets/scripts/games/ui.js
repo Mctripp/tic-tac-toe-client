@@ -1,8 +1,12 @@
 'use strict'
 
 const store = require('../store.js')
+const engine = require('../engine.js')
 
 // SUCCESSES ------------------------
+
+let count = 0
+let board = ['', '', '', '', '', '', '', '', '']
 
 const onGetGamesSuccess = responseData => {
   // Get games, store them, display stats
@@ -31,28 +35,50 @@ const onGetGamesSuccess = responseData => {
     )
   }
   $(".scoreboard").html("User: " + currGames[0].player_x.email +
-    "</br>" + "Games won: " + gamesWon
+    "</br>" + "Games played: " + gamesWon
   )
+  $("#find-game").removeClass("hidden")
 } // onGetGamesSuccess
 
 const onNewGameSuccess = responseData => {
   // Switch to new game (?)
+  $(".tictactoe").removeClass("hidden")
   $(".error-message").text("New game created! Created game ID: " +
    responseData.game.id)
   $(".error-message").addClass('success')
   $(".error-message").removeClass('failure')
   $(".error-message").removeClass('hidden')
   store.game = responseData.game
+  board = store.game.cells
+  count = 0
+  $("img").addClass("hidden")
+  $("img").css("opacity", 1)
+  $(".box").css("opacity", 1)
+  $(".box").css("border", "none")
+  $('.box').unbind()
+  $('.box').on('click', count, board, engine.markGrid)
+  $('.box').on('click', count, board, engine.checkWin)
 } // onNewGameSuccess
 
 const onFindGameSuccess = responseData => {
+  //Have to load in images on new game
   // Switch to found game (?)
   console.log(responseData)
+  $(".tictactoe").removeClass("hidden")
   $(".error-message").text("Game found!")
   $(".error-message").addClass('success')
   $(".error-message").removeClass('failure')
   $(".error-message").removeClass('hidden')
   store.game = responseData.game
+  board = store.game.cells
+  count = 0
+  $("img").addClass("hidden")
+  $("img").css("opacity", 1)
+  $(".box").css("opacity", 1)
+  $(".box").css("border", "none")
+  $('.box').unbind()
+  $('.box').on('click', count, board, engine.markGrid)
+  $('.box').on('click', count, board, engine.checkWin)
 } // onFindGameSuccess
 
 const onUpdateGameSuccess = responseData => {
