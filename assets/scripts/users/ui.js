@@ -60,6 +60,7 @@ const onSignOutSuccess = responseData => {
   $('#change-password').addClass('hidden')
   $('#sign-out').addClass('hidden')
   $('.game-options').addClass('hidden')
+  $('.scoreboard').addClass('hidden')
 
   $('.error-message').addClass('hidden')
 } // onSignOutSuccess
