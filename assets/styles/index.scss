@@ -38,7 +38,7 @@ input[type=text], input[type=password] {
 main {
   width: 65%;
   height: 65%;
-  margin: 5% 0 5% 17.5%;
+  margin: 5% 17.5%;
   text-align: center;
   display: flex;
   flex-wrap: wrap;
@@ -62,7 +62,8 @@ img {
   display: flex;
   flex-wrap: wrap;
   position: relative;
-  width: 90%;
+  width: 75%;
+  margin: 0 12.5%;
   height: 75%;
   align-items: stretch;
   background: rgba($colorGray, 0.25);

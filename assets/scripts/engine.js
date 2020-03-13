@@ -3,8 +3,8 @@
 const gamesApi = require('./games/api.js')
 const store = require('./store.js')
 
-const xImg = './../../../public/images/X.png'
-const oImg = './../../../public/images/O.png'
+const xImg = '/public/images/X.png'
+const oImg = '/public/images/O.png'
 
 let count = 0
 let board = ['', '', '', '', '', '', '', '', '']
@@ -146,7 +146,7 @@ const checkWin = event => {
     $('.box').css('opacity', 0.5)
     $(`.${winClass}>img`).css('opacity', 1)
     $(`.${winClass}`).css('opacity', 1)
-    $(`.${winClass}`).css('border', 'yellow solid 2px')
+    $(`.${winClass}`).css('border', '#66FCF1 solid 2px')
     $('.box').unbind()
     updateGameObj.game.over = true
     $(`.dropdown option[value=\"${store.game.id}\"]`).remove();
