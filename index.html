@@ -17,21 +17,21 @@
           <form id="sign-in">
             <button>Sign in</button>
             <input name="credentials[email]" type="text" value="email">
-            <input class="pw" name="credentials[password]" type="text" value="password">
+            <input class="pw sign-in-pw" name="credentials[password]" type="text" value="password">
           </form>
           <form id="sign-up">
             <button>Sign up</button>
             <input name="credentials[email]" type="text" value="email">
-            <input class="pw" name="credentials[password]" type="text" value="password">
-            <input class="pw" name="credentials[password_confirmation]" type="text" value="confirm password">
+            <input class="pw sign-up-pw" name="credentials[password]" type="text" value="password">
+            <input class="pw sign-up-confirm" name="credentials[password_confirmation]" type="text" value="confirm password">
           </form>
           <form id="sign-out" class="hidden">
             <button>Sign out</button>
           </form>
           <form id="change-password" class="hidden">
             <button>Change Password</button>
-            <input class="pw" name="passwords[oldPw]" type="text" value="password">
-            <input class="pw" name="passwords[newPw]" type="text" value="new password">
+            <input class="pw change-pw-pw" name="passwords[old]" type="text" value="password">
+            <input class="pw change-pw-confirm" name="passwords[new]" type="text" value="new password">
           </form>
         </nav>
       </header>

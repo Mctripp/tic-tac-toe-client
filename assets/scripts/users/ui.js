@@ -5,6 +5,18 @@ const gamesApi = require('./../games/api.js')
 const gamesUi = require('./../games/ui.js')
 const gamesEvents = require('./../games/events.js')
 
+const resetPwForms = () => {
+  $(".sign-in-pw").val("password")
+  $(".sign-up-pw").val("password")
+  $(".sign-up-confirm").val("confirm password")
+  $(".change-pw-pw").val("password")
+  $(".change-pw-confirm").val("new password")
+  $(".sign-up-pw").attr("type","text")
+  $(".sign-up-confirm").attr("type","text")
+  $(".change-pw-pw").attr("type","text")
+  $(".change-pw-confirm").attr("type","text")
+}
+
 // Handle all UI changes:
 
 // USERS ============================
@@ -12,19 +24,22 @@ const gamesEvents = require('./../games/events.js')
 
 const onSignUpSuccess = responseData => {
   // Nothing (?)
+  resetPwForms()
   $('.error-message').removeClass('hidden')
   $('.error-message').removeClass('failure')
   $('.error-message').addClass('success')
-  $('.error-message').text('Sign up success!')
+  $('.error-message').text('Sign up success! Welcome, ' + responseData.user.email + "!")
 } // onSignUpSuccess
 
 const onSignInSuccess = responseData => {
+  resetPwForms()
   store.user = responseData.user
   // const otherData = gamesApi.getGames()
   // const otherOtherData = otherData//.responseJSON//.games
   // console.log(otherData)
   // console.log(otherOtherData)
   // Hide welcome text, sign iwn/up form
+
   $('.welcome-text').addClass('hidden')
   $('#sign-up').addClass('hidden')
   $('#sign-in').addClass('hidden')
@@ -38,6 +53,7 @@ const onSignInSuccess = responseData => {
 } // onSignInSuccess
 
 const onSignOutSuccess = responseData => {
+  resetPwForms()
   // Show welcome text, sign in/up form
   $('.welcome-text').removeClass('hidden')
   $('#sign-up').removeClass('hidden')
@@ -52,8 +68,12 @@ const onSignOutSuccess = responseData => {
 } // onSignOutSuccess
 
 const onChangePasswordSuccess = responseData => {
+  resetPwForms()
   // Probably no UI change for this. Maybe dispay whether tht it was success (popup?)
-  $('.error-message').addClass('hidden')
+  $('.error-message').removeClass('failure')
+  $('.error-message').addClass('success')
+  $('.error-message').removeClass('hidden')
+  $('.error-message').text("Password changed successfully!")
 } // onChangePasswordSuccess
 
 // FAILURES -------------------------
@@ -64,8 +84,8 @@ const onSignUpFailure = responseData => {
   $('.error-message').removeClass('success')
   $('.error-message').addClass('failure')
   $('.error-message').text('Sign up failure - ' +
-  responseData.responseJSON.status + ': ' +
-  responseData.responseJSON.error)
+  responseData.status + ': ' +
+  responseData.statusText)
 } // onSignUpFailure
 
 const onSignInFailure = responseData => {
@@ -74,8 +94,8 @@ const onSignInFailure = responseData => {
   $('.error-message').removeClass('success')
   $('.error-message').addClass('failure')
   $('.error-message').text('Sign in failure - ' +
-  responseData.responseJSON.status + ': ' +
-  responseData.responseJSON.error)
+  responseData.status + ': ' +
+  responseData.statusText)
 } // onSignInFailure
 
 const onSignOutFailure = responseData => {
@@ -84,8 +104,8 @@ const onSignOutFailure = responseData => {
   $('.error-message').removeClass('success')
   $('.error-message').addClass('failure')
   $('.error-message').text('Sign out failure - ' +
-  responseData.responseJSON.status + ': ' +
-  responseData.responseJSON.error)
+  responseData.status + ': ' +
+  responseData.statusText)
 } // onSignOutFailure
 
 const onChangePasswordFailure = responseData => {
