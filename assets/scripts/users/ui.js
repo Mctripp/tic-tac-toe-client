@@ -34,10 +34,7 @@ const onSignUpSuccess = responseData => {
 const onSignInSuccess = responseData => {
   resetPwForms()
   store.user = responseData.user
-  // const otherData = gamesApi.getGames()
-  // const otherOtherData = otherData//.responseJSON//.games
-  // console.log(otherData)
-  // console.log(otherOtherData)
+
   // Hide welcome text, sign iwn/up form
 
   $('.welcome-text').addClass('hidden')
@@ -79,6 +76,7 @@ const onChangePasswordSuccess = responseData => {
 // FAILURES -------------------------
 
 const onSignUpFailure = responseData => {
+  resetPwForms()
   // Display text for sign up failure
   $('.error-message').removeClass('hidden')
   $('.error-message').removeClass('success')
@@ -89,6 +87,7 @@ const onSignUpFailure = responseData => {
 } // onSignUpFailure
 
 const onSignInFailure = responseData => {
+  resetPwForms()
   // Display text for sign in failure
   $('.error-message').removeClass('hidden')
   $('.error-message').removeClass('success')
@@ -99,6 +98,7 @@ const onSignInFailure = responseData => {
 } // onSignInFailure
 
 const onSignOutFailure = responseData => {
+  resetPwForms()
   // Display text for sign out failure
   $('.error-message').removeClass('hidden')
   $('.error-message').removeClass('success')
@@ -109,8 +109,8 @@ const onSignOutFailure = responseData => {
 } // onSignOutFailure
 
 const onChangePasswordFailure = responseData => {
+  resetPwForms()
   // Display text for change pw failure
-  console.log(responseData)
   $('.error-message').removeClass('hidden')
   $('.error-message').removeClass('success')
   $('.error-message').addClass('failure')
