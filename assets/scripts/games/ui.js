@@ -5,12 +5,28 @@ const engine = require('../engine.js')
 
 // SUCCESSES ------------------------
 
-const onGetGamesSuccess = responseData => {
-  // Get games, store them, display stats
-  $('.error-message').text('Got games!')
+const displaySuccessMsg = msg => {
+  $('.error-message').text(msg)
   $('.error-message').addClass('success')
   $('.error-message').removeClass('failure')
   $('.error-message').removeClass('hidden')
+}
+
+const resetBoardUi = function () {
+  $('img').addClass('hidden')
+  $('img').attr('src', "")
+  $('img').css('opacity', 1)
+  $('.box').css('opacity', 1)
+  $('.box').css('border', 'none')
+  $('.box').unbind()
+  $('.box').on('click', engine.markGrid)
+  $('.box').on('click', engine.checkWin)
+  engine.boardReset()
+}
+
+const onGetGamesSuccess = responseData => {
+  // Get games, store them, display stats
+  displaySuccessMsg('Got games!')
   // scoreboard
   const currGames = responseData.games
   store.user.games = currGames
@@ -38,85 +54,54 @@ const onGetGamesSuccess = responseData => {
 const onNewGameSuccess = responseData => {
   // Switch to new game (?)
   $('.tictactoe').removeClass('hidden')
-  $('.error-message').text('New game created! Created game ID: ' +
+  displaySuccessMsg('New game created! Created game ID: ' +
    responseData.game.id)
-  $('.error-message').addClass('success')
-  $('.error-message').removeClass('failure')
-  $('.error-message').removeClass('hidden')
+   resetBoardUi()
   store.game = responseData.game
-  $('img').addClass('hidden')
-  $('img').attr('src', "")
-  $('img').css('opacity', 1)
-  $('.box').css('opacity', 1)
-  $('.box').css('border', 'none')
-  $('.box').unbind()
-  $('.box').on('click', engine.markGrid)
-  $('.box').on('click', engine.checkWin)
-  engine.boardReset()
 } // onNewGameSuccess
 
 const onFindGameSuccess = responseData => {
   // Have to load in images on new game
   // Switch to found game (?)
   $('.tictactoe').removeClass('hidden')
-  $('.error-message').text('Game found! ID: ' +
-responseData.game.id)
-  $('.error-message').addClass('success')
-  $('.error-message').removeClass('failure')
-  $('.error-message').removeClass('hidden')
+  displaySuccessMsg('Game found! ID: ' + responseData.game.id)
+  resetBoardUi()
   store.game = responseData.game
-  $('img').addClass('hidden')
-  $('img').attr('src', "")
-  $('img').css('opacity', 1)
-  $('.box').css('opacity', 1)
-  $('.box').css('border', 'none')
-  $('.box').unbind()
-  $('.box').on('click', engine.markGrid)
-  $('.box').on('click', engine.checkWin)
-  engine.boardReset()
   engine.getBoard(store.game.cells)
 } // onFindGameSuccess
 
 const onUpdateGameSuccess = responseData => {
   // End turn, remove interactivity from board
-  $('.error-message').text('Game updated!')
-  $('.error-message').addClass('success')
-  $('.error-message').removeClass('failure')
-  $('.error-message').removeClass('hidden')
+  displaySuccessMsg('Game update success!')
 } // onUpdateGameSuccess
 
 // FAILURES --------------------------
 
-const onGetGamesFailure = responseData => {
-  // Error msg
-  $('.error-message').text('Failed to get games.')
+const displayFailMsg = msg => {
+  $('.error-message').text(msg)
   $('.error-message').addClass('failure')
   $('.error-message').removeClass('success')
   $('.error-message').removeClass('hidden')
+}
+
+const onGetGamesFailure = responseData => {
+  // Error msg
+  displayFailMsg('Failed to get games.')
 } // onGetGamesFailure
 
 const onNewGameFailure = responseData => {
   // Error msg
-  $('.error-message').text('Failed to create new game.')
-  $('.error-message').addClass('failure')
-  $('.error-message').removeClass('success')
-  $('.error-message').removeClass('hidden')
+  displayFailMsg('Failed to create new game.')
 } // onNewGameFailure
 
 const onFindGameFailure = responseData => {
   // Error msg
-  $('.error-message').text('Failed to find game(s).')
-  $('.error-message').addClass('failure')
-  $('.error-message').removeClass('success')
-  $('.error-message').removeClass('hidden')
+  displayFailMsg('Failed to find game(s).')
 } // onFindGameFailure
 
 const onUpdateGameFailure = responseData => {
   // Error msg
-  $('.error-message').text('Failed to update game.')
-  $('.error-message').addClass('failure')
-  $('.error-message').removeClass('success')
-  $('.error-message').removeClass('hidden')
+  displayFailMsg('Failed to update game.')
 } // onUpdateGameFailure
 
 module.exports = {

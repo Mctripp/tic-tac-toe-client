@@ -19,4 +19,5 @@ $(() => {
   $('#new-game').on('click', gameEvents.onNewGame)
   $('#get-games').on('click', gameEvents.onGetGames)
   $('#find-game').on('submit', gameEvents.onFindGame)
+  $(".pw").on('click', userEvents.onPwClick)
 })

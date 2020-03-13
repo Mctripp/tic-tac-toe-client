@@ -90,12 +90,13 @@ const onSignOutFailure = responseData => {
 
 const onChangePasswordFailure = responseData => {
   // Display text for change pw failure
+  console.log(responseData)
   $('.error-message').removeClass('hidden')
   $('.error-message').removeClass('success')
   $('.error-message').addClass('failure')
   $('.error-message').text('Change password failure - ' +
-  responseData.responseJSON.status + ': ' +
-  responseData.responseJSON.error)
+  responseData.status + ': ' +
+  responseData.statusText)
 } // onChangePasswordFailure
 
 module.exports = {

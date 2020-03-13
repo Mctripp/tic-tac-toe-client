@@ -17,26 +17,25 @@
           <form id="sign-in">
             <button>Sign in</button>
             <input name="credentials[email]" type="text" value="email">
-            <input name="credentials[password]" type="password" value="password">
+            <input class="pw" name="credentials[password]" type="text" value="password">
           </form>
           <form id="sign-up">
             <button>Sign up</button>
             <input name="credentials[email]" type="text" value="email">
-            <input name="credentials[password]" type="password" value="password">
-            <input name="credentials[password_confirmation]" type="password" value="confirm password">
+            <input class="pw" name="credentials[password]" type="text" value="password">
+            <input class="pw" name="credentials[password_confirmation]" type="text" value="confirm password">
           </form>
           <form id="sign-out" class="hidden">
             <button>Sign out</button>
           </form>
           <form id="change-password" class="hidden">
             <button>Change Password</button>
-            <input name="passwords[oldPw]" type="password" value="password">
-            <input name="passwords[newPw]" type="password" value="new password">
+            <input class="pw" name="passwords[oldPw]" type="text" value="password">
+            <input class="pw" name="passwords[newPw]" type="text" value="new password">
           </form>
         </nav>
       </header>
       <main>
-        <h1 class="side-text">Tic-Tac-Toe</h1>
         <p class="scoreboard hidden">User scores will appear here.</p>
         <div class="text-block">
           <h3 class="welcome-text">Welcome to Tic-tac-toe!<h3></br>

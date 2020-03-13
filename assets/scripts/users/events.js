@@ -52,9 +52,15 @@ const onChangePassword = event => {
     .catch(ui.onChangePasswordFailure)
 } // onChangePassword
 
+const onPwClick = event => {
+  event.preventDefault()
+  event.target.type = "password"
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
   onSignOut,
-  onChangePassword
+  onChangePassword,
+  onPwClick
 }

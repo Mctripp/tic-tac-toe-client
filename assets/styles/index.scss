@@ -12,6 +12,12 @@ html, body {
   height: 100%;
   background: $colorBlue2;
 }
+body {
+  background-image: url("./public/images/TTTbg.png");
+  background-attachment: scroll;
+  background-size: cover;
+  background-position: center;
+}
 
 h1, form {
   display: inline-block;
@@ -29,23 +35,6 @@ input[type=text], input[type=password] {
   }
 }
 
-.side-text {
-  text-shadow: 5px 0 20px $colorLightBlue2;
-  transform: rotate(5deg);
-  color: $colorLightBlue;
-  font-family: 'Lobster', sans-serif;
-  width: 100%;
-  display: inline;
-  opacity: 0.35;
-  position: absolute;
-  font-size: 2400%;
-  bottom: 25%;
-  left: 0;
-  user-select: none;
-  white-space: nowrap;
-  //top: 50%;
-}
-
 main {
   width: 65%;
   height: 65%;
@@ -55,19 +44,16 @@ main {
   flex-wrap: wrap;
 }
 
-.text-block {
-  font-family: 'Prompt', sans-serif;
-  color: $colorGray;
-}
-
 img {
   width: 100%;
   height: 100%;
 }
 
 .text-block {
+  font-family: 'Prompt', sans-serif;
+  color: $colorGray;
   width: 100%;
-  height: 35%;
+  height: 25%;
   text-shadow: 0 5px 3px black;
 }
 
@@ -76,8 +62,8 @@ img {
   display: flex;
   flex-wrap: wrap;
   position: relative;
-  width: 100%;
-  height: 65%;
+  width: 90%;
+  height: 75%;
   align-items: stretch;
   background: rgba($colorGray, 0.25);
   border-radius: 2%;
