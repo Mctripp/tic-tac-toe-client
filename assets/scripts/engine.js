@@ -152,7 +152,7 @@ const checkWin = event => {
     $(`.dropdown option[value=\"${store.game.id}\"]`).remove();
   } // if
   // If nobody has won when all squares are filled, fade boxes and end game
-  if (count === 9) {
+  else if (count === 9) {
     $('.error-message').text("Nobody wins! It's a tie.")
     $('.error-message').removeClass('hidden')
     $('.error-message').addClass('success')
