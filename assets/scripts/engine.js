@@ -1,9 +1,39 @@
 'use strict'
 
 const gamesApi = require('./games/api.js')
+const store = require('./store.js')
 
 const xImg = './../../../public/images/X.jpg'
 const oImg = './../../../public/images/O.jpg'
+
+let count = 0
+let board = ['', '', '', '', '', '', '', '', '']
+
+const boardReset = function () {
+  count = 0
+  board = ['', '', '', '', '', '', '', '', '']
+} // boardReset
+
+const copyArray = function (arr) {
+  let returnArr = []
+  arr.forEach(element => returnArr.push(element))
+  return returnArr
+}
+
+const getBoard = function (cells) {
+  board = copyArray(cells)
+  for (let i = 0; i < board.length; i++) {
+    if (board[i] === 'x') {
+      $(`#box${i}`).children().attr('src', xImg)
+      $(`#box${i}`).children().removeClass('hidden')
+      count++
+    } else if (board[i] === 'o') {
+      $(`#box${i}`).children().attr('src', oImg)
+      $(`#box${i}`).children().removeClass('hidden')
+      count++
+    } // if
+  } // for
+} // getBoard
 
 // Get board[] index from box ID
 const boxIdToNum = id => {
@@ -11,9 +41,8 @@ const boxIdToNum = id => {
 } // boxIdToNum
 
 // mark clicked grid with player's mark, disable event on square
-const markGrid = (event, count, board) => {
+const markGrid = event => {
   // Get clicked box ID
-  console.log(count)
   const boxId = event.target.id
   // Get board space index
   const boardNum = boxIdToNum(boxId)
@@ -24,16 +53,17 @@ const markGrid = (event, count, board) => {
     // Make X image first time and every other
     $(`#${boxId}`).children().attr('src', xImg)
     // Store 'x' in board
-    board.push('x')
+    board[boardNum] = 'x'
   } else {
     // Make O image second time and every other
     $(`#${boxId}`).children().attr('src', oImg)
     // store 'o' in board
-    board.push('o')
+    board[boardNum] = 'o'
   } // if
   count++
   // Remove click events
   $(`#${boxId}`).unbind()
+  store.game.cells = copyArray(board)
 } // markGrid
 
 // Put elements from within an object into an array
@@ -72,17 +102,13 @@ const checkClassWin = (classList, symbol) => {
     // index, that symbol has 3 in a row.
     if (winArr.every(element => element === symbol)) {
       winClass = element
-      console.log(winClass)
     } // if
   }) // forEach
   return winClass
 } // checkClassWin
 
-const checkWin = (event, count, board) => {
+const checkWin = event => {
   // Cannot end game before turn 5, skip check
-  if (count < 5) {
-    return
-  } // if
 
   // Make object to update game API
   const updateGameObj = {
@@ -101,9 +127,16 @@ const checkWin = (event, count, board) => {
   const classList = $(`#${boxId}`).attr('class').split(/\s+/)
   // Get symbol of the box that was clicked
   const symbol = board[boxIdToNum(boxId)]
+  store.game.cells[boxIdToNum(boxId)] = symbol
   updateGameObj.game.cell.value = symbol
+
   // See if the player has won
   const winClass = checkClassWin(classList, symbol)
+
+  if (count < 5) {
+    gamesApi.updateGame(updateGameObj)
+    return
+  } // if
   // If the player wins, display message and visuals
   if (checkClassWin(classList, symbol) !== null) {
     $('.error-message').text('Player ' + symbol.toUpperCase() + ' wins!')
@@ -116,6 +149,7 @@ const checkWin = (event, count, board) => {
     $(`.${winClass}`).css('border', 'yellow solid 2px')
     $('.box').unbind()
     updateGameObj.game.over = true
+    $(`.dropdown option[value=\"${store.game.id}\"]`).remove();
   } // if
   // If nobody has won when all squares are filled, fade boxes and end game
   if (count === 9) {
@@ -125,11 +159,15 @@ const checkWin = (event, count, board) => {
     $('img').css('opacity', 0.5)
     $('.box').css('opacity', 0.5)
     updateGameObj.game.over = true
+    $(`.dropdown option[value=\"${store.game.id}\"]`).remove();
   }
   gamesApi.updateGame(updateGameObj)
 } // checkWin
 
 module.exports = {
   markGrid,
-  checkWin
+  checkWin,
+  boardReset,
+  getBoard,
+  copyArray
 }

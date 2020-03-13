@@ -5,12 +5,8 @@ const engine = require('../engine.js')
 
 // SUCCESSES ------------------------
 
-let count = 0
-let board = ['', '', '', '', '', '', '', '', '']
-
 const onGetGamesSuccess = responseData => {
   // Get games, store them, display stats
-  console.log(responseData)
   $('.error-message').text('Got games!')
   $('.error-message').addClass('success')
   $('.error-message').removeClass('failure')
@@ -19,20 +15,19 @@ const onGetGamesSuccess = responseData => {
   const currGames = responseData.games
   store.user.games = currGames
   let gamesWon = 0
-  console.log(store.user.games)
   $('.dropdown').empty()
   $('.dropdown').append(
     '<option value="default">Select game by ID...</option>'
   )
   for (let i = 0; i < currGames.length; i++) {
-    console.log(currGames[i])
     if (currGames[i].over === true) {
       gamesWon++
+    } else {
+      $('.dropdown').append(
+        '<option value=' + `${currGames[i].id}` +
+        '>' + `${currGames[i].id}` + '</option>'
+      )
     }
-    $('.dropdown').append(
-      '<option value=' + `${currGames[i].id}` +
-      '>' + `${currGames[i].id}` + '</option>'
-    )
   }
   $('.scoreboard').html('User: ' + currGames[0].player_x.email +
     '</br>' + 'Games played: ' + gamesWon
@@ -49,41 +44,41 @@ const onNewGameSuccess = responseData => {
   $('.error-message').removeClass('failure')
   $('.error-message').removeClass('hidden')
   store.game = responseData.game
-  board = store.game.cells
-  count = 0
   $('img').addClass('hidden')
+  $('img').attr('src', "")
   $('img').css('opacity', 1)
   $('.box').css('opacity', 1)
   $('.box').css('border', 'none')
   $('.box').unbind()
-  $('.box').on('click', count, board, engine.markGrid)
-  $('.box').on('click', count, board, engine.checkWin)
+  $('.box').on('click', engine.markGrid)
+  $('.box').on('click', engine.checkWin)
+  engine.boardReset()
 } // onNewGameSuccess
 
 const onFindGameSuccess = responseData => {
   // Have to load in images on new game
   // Switch to found game (?)
-  console.log(responseData)
   $('.tictactoe').removeClass('hidden')
-  $('.error-message').text('Game found!')
+  $('.error-message').text('Game found! ID: ' +
+responseData.game.id)
   $('.error-message').addClass('success')
   $('.error-message').removeClass('failure')
   $('.error-message').removeClass('hidden')
   store.game = responseData.game
-  board = store.game.cells
-  count = 0
   $('img').addClass('hidden')
+  $('img').attr('src', "")
   $('img').css('opacity', 1)
   $('.box').css('opacity', 1)
   $('.box').css('border', 'none')
   $('.box').unbind()
-  $('.box').on('click', count, board, engine.markGrid)
-  $('.box').on('click', count, board, engine.checkWin)
+  $('.box').on('click', engine.markGrid)
+  $('.box').on('click', engine.checkWin)
+  engine.boardReset()
+  engine.getBoard(store.game.cells)
 } // onFindGameSuccess
 
 const onUpdateGameSuccess = responseData => {
   // End turn, remove interactivity from board
-  console.log(responseData)
   $('.error-message').text('Game updated!')
   $('.error-message').addClass('success')
   $('.error-message').removeClass('failure')
