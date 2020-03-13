@@ -42,9 +42,10 @@ nav form {
 }
 // INTERACTIVES -------------------- INTERACTIVES
 button {
-  background: $colorBlue;
   background: $colorLightBlue2;
-  border-color: $colorLightBlue;
+  border: 3px solid $colorLightBlue;
+  border-bottom: 3px solid $colorBlue2;
+  border-right: 3px solid $colorBlue2;
   border-radius: 5%;
 }
 
@@ -87,7 +88,9 @@ img {
   margin: 0 12.5%;
   height: 75%;
   align-items: stretch;
-  background: rgba($colorLightBlue, 0.25);
+  background: rgba($colorLightBlue, 0.4);
+  border: 5px solid rgba($colorBlue2, 0.3);
+  border-bottom: 5px solid rgba($colorBlue, 0.3);
   border-radius: 2%;
 }
 
@@ -97,7 +100,7 @@ img {
   background: $colorGray;
   box-shadow: 2px 3px $colorBlue;
   &:hover {
-    background: $colorBlue2;
+    background: $colorLightBlue2;
   }
 }
 
@@ -123,14 +126,19 @@ img {
 .dropdown {
   font-family: 'Prompt', sans-serif;
 }
-
+// SCOREBOARD ------------------------------ SCOREBOARD
 .scoreboard {
   display: inline;
   position: absolute;
+  bottom: 12%;
+  left: 1%;
   font-size: 24px;
-  left: 2.5;
-  color: $colorGray;
-  text-shadow: 0 5px 3px $colorBlue;
+  padding: 10px;
+  color: $colorLightBlue2;
+  background: $colorBlue;
+  border: 2px solid $colorLightBlue;
+  border-bottom-color: $colorLightBlue2;
+  border-right-color: $colorLightBlue2;
 }
 // FOOTER ------------------------------------ FOOTER
 footer {

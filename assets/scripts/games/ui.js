@@ -30,14 +30,14 @@ const onGetGamesSuccess = responseData => {
   // scoreboard
   const currGames = responseData.games
   store.user.games = currGames
-  let gamesWon = 0
+  let gamesPlayed = 0
   $('.dropdown').empty()
   $('.dropdown').append(
     '<option value="default">Select game by ID...</option>'
   )
   for (let i = 0; i < currGames.length; i++) {
     if (currGames[i].over === true) {
-      gamesWon++
+      gamesPlayed++
     } else {
       $('.dropdown').append(
         '<option value=' + `${currGames[i].id}` +
@@ -46,7 +46,7 @@ const onGetGamesSuccess = responseData => {
     }
   }
   $('.scoreboard').html('User: ' + currGames[0].player_x.email +
-    '</br>' + 'Games played: ' + gamesWon
+    '</br>' + 'Games played: ' + gamesPlayed
   )
   $('#find-game').removeClass('hidden')
 } // onGetGamesSuccess
