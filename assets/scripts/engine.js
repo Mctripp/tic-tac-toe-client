@@ -3,8 +3,8 @@
 const gamesApi = require('./games/api.js')
 const store = require('./store.js')
 
-const xImg = './../../../public/images/X.jpg'
-const oImg = './../../../public/images/O.jpg'
+const xImg = './../../../public/images/X.png'
+const oImg = './../../../public/images/O.png'
 
 let count = 0
 let board = ['', '', '', '', '', '', '', '', '']
