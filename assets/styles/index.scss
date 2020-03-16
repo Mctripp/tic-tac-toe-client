@@ -115,7 +115,7 @@ img {
 .game-options {
   font-family: 'Lobster', sans-serif;
   width: 100%;
-  margin: 0 0 0 30px;
+  margin: 0 0 2% 3%;
 }
 
 .game-options form {
@@ -128,9 +128,9 @@ img {
 }
 // SCOREBOARD ------------------------------ SCOREBOARD
 .scoreboard {
-  display: inline;
+  display: inline-block;
   position: absolute;
-  bottom: 12%;
+  bottom: 20%;
   left: 1%;
   font-size: 24px;
   padding: 10px;
@@ -149,8 +149,9 @@ footer {
   font-family: 'Prompt', sans-serif;
   width: 100%;
   height: 8%;
-  position: absolute;
-  bottom: 0;
+  //position: absolute;
+  //bottom: 0;
+  margin-top: 5px;
   border-top: 5px solid $colorLightBlue;
 }
 
