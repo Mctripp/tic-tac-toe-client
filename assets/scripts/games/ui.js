@@ -36,12 +36,11 @@ const resetEvents = () => {
 }
 
 const calcUserStats = (currGames, isNewGame) => {
-  $('.dropdown').empty()
-  $('.dropdown').append(
-    '<option value="default">Select game by ID...</option>'
-  )
-  gamesPlayed++
   if(!isNewGame){
+    $('.dropdown').empty()
+    $('.dropdown').append(
+      '<option value="default">Select game by ID...</option>'
+    )
     gamesPlayed = 0
     gamesFinished = 0
     for (let i = 0; i < currGames.length; i++) {
@@ -55,7 +54,13 @@ const calcUserStats = (currGames, isNewGame) => {
         )
       } // if
     } // for
-  } // if
+  } else {
+    gamesPlayed++
+    $('.dropdown').append(
+      '<option value=' + `${store.game.id}` +
+      '>' + `${store.game.id}` + '</option>'
+    )
+  }
   $('.scoreboard').html('User: ' + currGames[0].player_x.email +
     '</br>' + 'Games in progress: ' + gamesPlayed +
     '</br>Games finished: ' + gamesFinished
