@@ -7,6 +7,9 @@ const gamesUi = require('./../games/ui.js')
 const gamesEvents = require('./../games/events.js')
 const getFormFields = require('./../../../lib/get-form-fields.js')
 
+// Not explaining these next few functions in depth, names
+// explain them well enough
+
 const resetPwForms = () => {
   $(".sign-in-pw").val("password")
   $(".sign-up-pw").val("password")
@@ -18,7 +21,7 @@ const resetPwForms = () => {
   $(".sign-up-confirm").attr("type","text")
   $(".change-pw-pw").attr("type","text")
   $(".change-pw-confirm").attr("type","text")
-}
+} //resetPwForms
 
 const swapPage1To2 = () => {
   $('.welcome-text').addClass('hidden')
@@ -62,7 +65,10 @@ const onSignUpSuccess = responseData => {
   // Nothing (?)
   resetPwForms()
   displaySuccessMsg("Sign up success, welcome " +
-  responseData.user.email + "!")
+  responseData.user.email + ".")
+
+  // Potential auto sign in below
+
   // store.user = responseData.user
   // usersApi.signIn(store.user)
   // swapPage1To2()
@@ -73,72 +79,76 @@ const onSignUpSuccess = responseData => {
 } // onSignUpSuccess
 
 const onSignInSuccess = responseData => {
+  // Reset forms
   resetPwForms()
+  // Store user data
   store.user = responseData.user
-
+  // Swap pages
   swapPage1To2()
+  // Display info msg
   displaySuccessMsg("Sign in success, welcome " +
-  responseData.user.email + "!")
+  responseData.user.email + ".")
 } // onSignInSuccess
 
 const onSignOutSuccess = responseData => {
+  // Reset forms
   resetPwForms()
+  // Reset scoreboard for next login
   $(".scoreboard").text("Create a new game, then click \"Get games\" to see user info.")
+  // Swap pages
   swapPage2To1()
+  // Display info msg
   displaySuccessMsg("Sign out success.")
 } // onSignOutSuccess
 
 const onChangePasswordSuccess = responseData => {
+  // Reset forms
   resetPwForms()
-  // Probably no UI change for this. Maybe dispay whether tht it was success (popup?)
-  $('.error-message').removeClass('failure')
-  $('.error-message').addClass('success')
-  $('.error-message').removeClass('hidden')
-  $('.error-message').text("Password changed successfully!")
+  // Display info msg
+  displaySuccessMsg("Password changed successfully.")
 } // onChangePasswordSuccess
 
 // FAILURES -------------------------
 
-const onSignUpFailure = responseData => {
-  resetPwForms()
-  // Display text for sign up failure
-  $('.error-message').removeClass('hidden')
+const displayFailureMsg = msg => {
+  $('.error-message').text(msg)
   $('.error-message').removeClass('success')
   $('.error-message').addClass('failure')
-  $('.error-message').text('Sign up failure - ' +
+  $('.error-message').removeClass('hidden')
+} // displayFailureMsg
+
+const onSignUpFailure = responseData => {
+  // Reset forms
+  resetPwForms()
+  // Display text for sign up failure
+  displayFailureMsg('Sign up failure - ' +
   responseData.status + ': ' +
   responseData.statusText)
 } // onSignUpFailure
 
 const onSignInFailure = responseData => {
+  // Reset forms
   resetPwForms()
   // Display text for sign in failure
-  $('.error-message').removeClass('hidden')
-  $('.error-message').removeClass('success')
-  $('.error-message').addClass('failure')
-  $('.error-message').text('Sign in failure - ' +
+  displayFailureMsg('Sign in failure - ' +
   responseData.status + ': ' +
   responseData.statusText)
 } // onSignInFailure
 
 const onSignOutFailure = responseData => {
+  // Reset forms
   resetPwForms()
   // Display text for sign out failure
-  $('.error-message').removeClass('hidden')
-  $('.error-message').removeClass('success')
-  $('.error-message').addClass('failure')
-  $('.error-message').text('Sign out failure - ' +
+  displayFailureMsg('Sign out failure - ' +
   responseData.status + ': ' +
   responseData.statusText)
 } // onSignOutFailure
 
 const onChangePasswordFailure = responseData => {
+  // Reset forms
   resetPwForms()
   // Display text for change pw failure
-  $('.error-message').removeClass('hidden')
-  $('.error-message').removeClass('success')
-  $('.error-message').addClass('failure')
-  $('.error-message').text('Change password failure - ' +
+  displayFailureMsg('Change password failure - ' +
   responseData.status + ': ' +
   responseData.statusText)
 } // onChangePasswordFailure

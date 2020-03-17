@@ -16,3 +16,5 @@ After I got my grid and engine working, and setup events on button clicks, I deb
 Once I had my page layout and navigation set, I setup the API interactions since that is what I was the least familiar with.
 
 I added finishing touches, such as contact info at the bottom of the page, and then debugged through any issues I was having.
+
+I am in the process of automatically signing in after signup, allowing multiplayer, and implementing the computer AI on two different difficulties.

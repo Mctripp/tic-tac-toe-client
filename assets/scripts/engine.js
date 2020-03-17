@@ -18,23 +18,24 @@ const copyArray = arr => {
   let returnArr = []
   arr.forEach(element => returnArr.push(element))
   return returnArr
-}
+} // copyArray
 
 const invalidPick = () => {
   $('.error-message').text('Invalid square chosen!')
   $('.error-message').addClass('failure')
   $('.error-message').removeClass('success')
   $('.error-message').removeClass('hidden')
-}
+} //invalidPick
 
 const gameOverPick = () => {
   $('.error-message').text('Game is over!')
   $('.error-message').addClass('failure')
   $('.error-message').removeClass('success')
   $('.error-message').removeClass('hidden')
-}
+} //gameOverPick
 
 const getBoard = cells => {
+  // Updates board imgs
   board = copyArray(cells)
   for (let i = 0; i < board.length; i++) {
     if (board[i] === 'x') {
@@ -165,6 +166,7 @@ const checkWin = event => {
     $(`.${winClass}`).css('opacity', 1)
     $(`.${winClass}`).css('border', '#66FCF1 solid 2px')
     $('.box').unbind()
+    // Update game data
     store.game.over = true
     updateGameObj.game.over = true
     $(`.dropdown option[value=\"${store.game.id}\"]`).remove();
@@ -177,6 +179,7 @@ const checkWin = event => {
     $('.error-message').addClass('success')
     $('img').css('opacity', 0.5)
     $('.box').css('opacity', 0.5)
+    // Update game data
     store.game.over = true
     updateGameObj.game.over = true
     $(`.dropdown option[value=\"${store.game.id}\"]`).remove();

@@ -27,7 +27,6 @@ const onNewGame = event => {
 const onFindGame = event => {
   event.preventDefault()
   const currVal = $('#find-game').children('select').val()
-  console.log(currVal)
 
   api.findGame(currVal)
   // If succeed:

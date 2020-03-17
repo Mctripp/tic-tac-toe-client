@@ -53,6 +53,7 @@ const onChangePassword = event => {
 } // onChangePassword
 
 const onPwClick = event => {
+  // On select, change to PW field to hide text, remove text
   event.preventDefault()
   event.target.type = "password"
   event.target.value = ""
