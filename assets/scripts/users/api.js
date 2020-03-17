@@ -20,7 +20,6 @@ const signUp = (credentials) => {
 
 // Sign in existing user:
 const signIn = (credentials) => {
-  console.log(credentials)
   return $.ajax({
     url: config.apiUrl + '/sign-in',
     method: 'POST',
