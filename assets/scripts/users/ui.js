@@ -26,8 +26,8 @@ const swapPage1To2 = () => {
   $('.page1').attr('disabled',true)
   $('.page2').removeClass('faded')
   $('.page2').removeAttr('disabled')
-  $('.error-message').addClass('hidden')
   $('.scoreboard').removeClass('hidden')
+  $('.error-message').addClass('hidden')
   $('.game-options').removeClass('hidden')
 } //swapPage1To2
 
@@ -40,11 +40,18 @@ const swapPage2To1 = () => {
   $('.tictactoe').addClass('hidden')
   $('.game-options').addClass('hidden')
   $('.scoreboard').addClass('hidden')
-  $('.error-message').addClass('hidden')
   $('.scoreboard').addClass('hidden')
+  $('.error-message').addClass('hidden')
   $('.game-options').addClass('hidden')
   $('#find-game').addClass('hidden')
 } //swapPage1To2
+
+const displaySuccessMsg = msg => {
+  $('.error-message').text(msg)
+  $('.error-message').addClass('success')
+  $('.error-message').removeClass('failure')
+  $('.error-message').removeClass('hidden')
+} // displaySuccessMsg
 
 // Handle all UI changes:
 
@@ -54,6 +61,8 @@ const swapPage2To1 = () => {
 const onSignUpSuccess = responseData => {
   // Nothing (?)
   resetPwForms()
+  displaySuccessMsg("Sign up success, welcome " +
+  responseData.user.email + "!")
   // store.user = responseData.user
   // usersApi.signIn(store.user)
   // swapPage1To2()
@@ -68,12 +77,15 @@ const onSignInSuccess = responseData => {
   store.user = responseData.user
 
   swapPage1To2()
+  displaySuccessMsg("Sign in success, welcome " +
+  responseData.user.email + "!")
 } // onSignInSuccess
 
 const onSignOutSuccess = responseData => {
   resetPwForms()
   $(".scoreboard").text("Create a new game, then click \"Get games\" to see user info.")
   swapPage2To1()
+  displaySuccessMsg("Sign out success.")
 } // onSignOutSuccess
 
 const onChangePasswordSuccess = responseData => {
