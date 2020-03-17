@@ -79,7 +79,6 @@ const onNewGameSuccess = responseData => {
    responseData.game.id)
    resetBoardUi()
    store.game = responseData.game
-   console.log(store.game)
    //increase gamesPlayed count
    if(store.user.games !== undefined) {
      const currGames = store.user.games

@@ -43,6 +43,7 @@ const swapPage2To1 = () => {
   $('.error-message').addClass('hidden')
   $('.scoreboard').addClass('hidden')
   $('.game-options').addClass('hidden')
+  $('#find-game').addClass('hidden')
 } //swapPage1To2
 
 // Handle all UI changes:
