@@ -15,23 +15,31 @@
       <header>
         <nav>
           <form id="sign-in">
-            <button>Sign in</button>
-            <input name="credentials[email]" type="text" value="email">
-            <input class="pw sign-in-pw" name="credentials[password]" type="text" value="password">
+            <button class="page1">Sign in</button>
+            <input class="page1" name="credentials[email]" type="text" value="email"
+            autocomplete="username">
+            <input class="page1 pw sign-in-pw" name="credentials[password]"
+            type="text" value="password" autocomplete="current-password">
           </form>
           <form id="sign-up">
-            <button>Sign up</button>
-            <input name="credentials[email]" type="text" value="email">
-            <input class="pw sign-up-pw" name="credentials[password]" type="text" value="password">
-            <input class="pw sign-up-confirm" name="credentials[password_confirmation]" type="text" value="confirm password">
+            <button class="page1">Sign up</button>
+            <input class="page1" name="credentials[email]" type="text" value="email"
+            autocomplete="username">
+            <input class=" page1 pw sign-up-pw" name="credentials[password]"
+            type="text" value="password" autocomplete="new-password">
+            <input class=" page1 pw sign-up-confirm"
+            name="credentials[password_confirmation]" type="text"
+            value="confirm password" autocomplete="new-password">
           </form>
-          <form id="change-password" class="hidden">
-            <button>Change Password</button>
-            <input class="pw change-pw-pw" name="passwords[old]" type="text" value="password">
-            <input class="pw change-pw-confirm" name="passwords[new]" type="text" value="new password">
+          <form id="change-password">
+            <button class="faded page2" disabled>Change Password</button>
+            <input class="faded page2 pw change-pw-pw" name="passwords[old]" type="text"
+             value="password" autocomplete="current-password" disabled>
+            <input class="faded page2 pw change-pw-confirm" name="passwords[new]"
+            type="text" value="new password" autocomplete="new-password" disabled>
           </form>
-          <form id="sign-out" class="hidden">
-            <button>Sign out</button>
+          <form id="sign-out">
+            <button class="faded page2" disabled>Sign out</button>
           </form>
         </nav>
       </header>
@@ -86,7 +94,7 @@
         <p>
           mike tripp on:
           <a href="https://github.com/Mctripp/tic-tac-toe-client" target="_blank">github</a> ||
-          <a href="#">linkedIn</a> ||
+          <a href="https://www.linkedin.com/in/michael-casey-tripp/" target="_blank">linkedIn</a> ||
           <a href="#">? ? ?</a>
         </p>
       </footer>

@@ -9,18 +9,32 @@ const oImg = 'public/O.png'
 let count = 0
 let board = ['', '', '', '', '', '', '', '', '']
 
-const boardReset = function () {
+const boardReset = () => {
   count = 0
   board = ['', '', '', '', '', '', '', '', '']
 } // boardReset
 
-const copyArray = function (arr) {
+const copyArray = arr => {
   let returnArr = []
   arr.forEach(element => returnArr.push(element))
   return returnArr
 }
 
-const getBoard = function (cells) {
+const invalidPick = () => {
+  $('.error-message').text('Invalid square chosen!')
+  $('.error-message').addClass('failure')
+  $('.error-message').removeClass('success')
+  $('.error-message').removeClass('hidden')
+}
+
+const gameOverPick = () => {
+  $('.error-message').text('Game is over!')
+  $('.error-message').addClass('failure')
+  $('.error-message').removeClass('success')
+  $('.error-message').removeClass('hidden')
+}
+
+const getBoard = cells => {
   board = copyArray(cells)
   for (let i = 0; i < board.length; i++) {
     if (board[i] === 'x') {
@@ -41,9 +55,8 @@ const boxIdToNum = id => {
 } // boxIdToNum
 
 // mark clicked grid with player's mark, disable event on square
-const markGrid = event => {
-  // Get clicked box ID
-  const boxId = event.target.id
+const markGrid = boxId => {
+  $('.error-message').addClass('hidden')
   // Get board space index
   const boardNum = boxIdToNum(boxId)
   // Show img
@@ -109,7 +122,12 @@ const checkClassWin = (classList, symbol) => {
 
 const checkWin = event => {
   // Cannot end game before turn 5, skip check
-
+  const boxId = event.target.id
+  // fix img on click, not sure why this is firing anyways
+  if(boxId === "") {
+    return
+  }
+  markGrid(boxId)
   // Make object to update game API
   const updateGameObj = {
     'game': {
@@ -121,7 +139,6 @@ const checkWin = event => {
     }
   }
   // Get id of clicked box
-  const boxId = event.target.id
   updateGameObj.game.cell.index = boxIdToNum(boxId)
   // Get list of classes associated with that box
   const classList = $(`#${boxId}`).attr('class').split(/\s+/)
@@ -148,8 +165,10 @@ const checkWin = event => {
     $(`.${winClass}`).css('opacity', 1)
     $(`.${winClass}`).css('border', '#66FCF1 solid 2px')
     $('.box').unbind()
+    store.game.over = true
     updateGameObj.game.over = true
     $(`.dropdown option[value=\"${store.game.id}\"]`).remove();
+    $(`.box`).on('click', gameOverPick)
   } // if
   // If nobody has won when all squares are filled, fade boxes and end game
   else if (count === 9) {
@@ -158,8 +177,10 @@ const checkWin = event => {
     $('.error-message').addClass('success')
     $('img').css('opacity', 0.5)
     $('.box').css('opacity', 0.5)
+    store.game.over = true
     updateGameObj.game.over = true
     $(`.dropdown option[value=\"${store.game.id}\"]`).remove();
+    $(`.box`).on('click', gameOverPick)
   }
   gamesApi.updateGame(updateGameObj)
 } // checkWin
@@ -169,5 +190,6 @@ module.exports = {
   checkWin,
   boardReset,
   getBoard,
-  copyArray
+  copyArray,
+  invalidPick
 }

@@ -5,6 +5,7 @@ $colorBlue: #0B0C10;
 $colorBlue2: #1F2833;
 $colorGray: #C5C6C7;
 $colorDarkGray: #A5A6A7;
+$colorDarkerGray: #858687;
 $colorLightBlue: #66FCF1;
 $colorLightBlue2: #45A29E;
 
@@ -74,6 +75,7 @@ img {
 .text-block {
   font-family: 'Prompt', sans-serif;
   color: $colorGray;
+  display: inline-block;
   width: 100%;
   height: 25%;
   text-shadow: 0 5px 3px black;
@@ -130,7 +132,7 @@ img {
 .scoreboard {
   display: inline-block;
   position: absolute;
-  bottom: 20%;
+  top: 15%;
   left: 1%;
   font-size: 24px;
   padding: 10px;
@@ -174,6 +176,17 @@ p a {
 // UTILITY CLASSES ------------------------------ UTILITY CLASSES
 .hidden {
   visibility: hidden;
+}
+
+.faded {
+  opacity: 0.5;
+}
+
+button .faded{
+  background: $colorGray;
+  border: 3px solid $colorDarkGray;
+  border-bottom: 3px solid $colorDarkerGray;
+  border-right: 3px solid $colorDarkerGray;
 }
 
 .failure {

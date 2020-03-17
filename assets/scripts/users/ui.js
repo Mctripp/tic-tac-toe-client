@@ -1,9 +1,11 @@
 'use strict'
 
 const store = require('./../store.js')
+const usersApi = require('./api.js')
 const gamesApi = require('./../games/api.js')
 const gamesUi = require('./../games/ui.js')
 const gamesEvents = require('./../games/events.js')
+const getFormFields = require('./../../../lib/get-form-fields.js')
 
 const resetPwForms = () => {
   $(".sign-in-pw").val("password")
@@ -11,11 +13,37 @@ const resetPwForms = () => {
   $(".sign-up-confirm").val("confirm password")
   $(".change-pw-pw").val("password")
   $(".change-pw-confirm").val("new password")
+  $(".sign-in-pw").attr("type","text")
   $(".sign-up-pw").attr("type","text")
   $(".sign-up-confirm").attr("type","text")
   $(".change-pw-pw").attr("type","text")
   $(".change-pw-confirm").attr("type","text")
 }
+
+const swapPage1To2 = () => {
+  $('.welcome-text').addClass('hidden')
+  $('.page1').addClass('faded')
+  $('.page1').attr('disabled',true)
+  $('.page2').removeClass('faded')
+  $('.page2').removeAttr('disabled')
+  $('.error-message').addClass('hidden')
+  $('.scoreboard').removeClass('hidden')
+  $('.game-options').removeClass('hidden')
+} //swapPage1To2
+
+const swapPage2To1 = () => {
+  $('.welcome-text').removeClass('hidden')
+  $('.page2').addClass('faded')
+  $('.page2').attr('disabled',true)
+  $('.page1').removeClass('faded')
+  $('.page1').removeAttr('disabled')
+  $('.tictactoe').addClass('hidden')
+  $('.game-options').addClass('hidden')
+  $('.scoreboard').addClass('hidden')
+  $('.error-message').addClass('hidden')
+  $('.scoreboard').addClass('hidden')
+  $('.game-options').addClass('hidden')
+} //swapPage1To2
 
 // Handle all UI changes:
 
@@ -25,44 +53,26 @@ const resetPwForms = () => {
 const onSignUpSuccess = responseData => {
   // Nothing (?)
   resetPwForms()
-  $('.error-message').removeClass('hidden')
-  $('.error-message').removeClass('failure')
-  $('.error-message').addClass('success')
-  $('.error-message').text('Sign up success! Welcome, ' + responseData.user.email + "!")
+  // store.user = responseData.user
+  // usersApi.signIn(store.user)
+  // swapPage1To2()
+  // $('.error-message').removeClass('hidden')
+  // $('.error-message').removeClass('failure')
+  // $('.error-message').addClass('success')
+  // $('.error-message').text('Sign up success! Welcome, ' + responseData.user.email + "!")
 } // onSignUpSuccess
 
 const onSignInSuccess = responseData => {
   resetPwForms()
   store.user = responseData.user
 
-  // Hide welcome text, sign iwn/up form
-
-  $('.welcome-text').addClass('hidden')
-  $('#sign-up').addClass('hidden')
-  $('#sign-in').addClass('hidden')
-  // Show board, sign out/change pw form, scoreboard
-  $('.scoreboard').removeClass('hidden')
-  $('#change-password').removeClass('hidden')
-  $('#sign-out').removeClass('hidden')
-  $('.game-options').removeClass('hidden')
-
-  $('.error-message').addClass('hidden')
+  swapPage1To2()
 } // onSignInSuccess
 
 const onSignOutSuccess = responseData => {
   resetPwForms()
-  // Show welcome text, sign in/up form
-  $('.welcome-text').removeClass('hidden')
-  $('#sign-up').removeClass('hidden')
-  $('#sign-in').removeClass('hidden')
-  // Hide board, sign out/change pw form, scoreboard
-  $('.tictactoe').addClass('hidden')
-  $('#change-password').addClass('hidden')
-  $('#sign-out').addClass('hidden')
-  $('.game-options').addClass('hidden')
-  $('.scoreboard').addClass('hidden')
-
-  $('.error-message').addClass('hidden')
+  $(".scoreboard").text("Create a new game, then click \"Get games\" to see user info.")
+  swapPage2To1()
 } // onSignOutSuccess
 
 const onChangePasswordSuccess = responseData => {

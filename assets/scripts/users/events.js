@@ -55,6 +55,7 @@ const onChangePassword = event => {
 const onPwClick = event => {
   event.preventDefault()
   event.target.type = "password"
+  event.target.value = ""
 }
 
 module.exports = {
