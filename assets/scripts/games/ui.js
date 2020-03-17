@@ -162,6 +162,5 @@ module.exports = {
   onNewGameFailure,
   onFindGameSuccess,
   onFindGameFailure,
-  onUpdateGameSuccess,
   onUpdateGameFailure
 }
