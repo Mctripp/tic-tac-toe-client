@@ -1,11 +1,18 @@
-Tic-tac-toe game project
-========================
+# Tic-tac-toe Game Project
+
+## Tech Used
 
 This project uses all of the resources we have gathered from the first three weeks in the program, namely:
 - JavaScript
-- HTML 
+- HTML
 - CSS/SASS
 - jQuery
+
+## Wireframe
+
+## User Stories
+
+## Approach
 
 I started by laying out the "skeletons" of each api.js, ui.js, and events.js files for both users and games: empty functions with names describing what they do.
 
@@ -21,4 +28,10 @@ Once I had my page layout and navigation set, I setup the API interactions since
 
 I added finishing touches, such as contact info at the bottom of the page, and then debugged through any issues I was having.
 
-I am in the process of automatically signing in after signup, allowing multiplayer, and implementing the computer AI on two different difficulties.
+## Unsolved Problems
+
+- Automatic sign-in: Have user automatically sign in after sign up. I attempted this, but the dependencies would always get tangled up.
+- Multiplayer games: Look at the documentation and understand how "watch" works, allow two players to play across separate devices.
+- Custom tokens: Have a way for the player to upload their desired token image, and replace the variables I use for the images currently with theirs.
+- Multiple themes: Make different SASS overlay themes, and a selector in the bottom right of the screen.
+- Mobile: I have no desire to do this, seems like a complete redesign of the site, or a hefty amount of CSS.
