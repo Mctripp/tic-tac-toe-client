@@ -10,7 +10,7 @@ This project uses all of the resources we have gathered from the first three wee
 
 ## Wireframe
 
-[wireframe]: (https://github.com/Mctripp/tic-tac-toe-client/blob/master/public/wireframe.jpg)
+![wireframe](https://github.com/Mctripp/tic-tac-toe-client/blob/master/public/wireframe.jpg)
 
 ## User Stories
 
