@@ -77,6 +77,10 @@ const calcUserStats = (currGames, isNewGame) => {
 
 const onGetGamesSuccess = responseData => {
   // Get games, store them, display stats
+  if(responseData.games.length === 0) {
+    displayFailMsg('No games for user yet, create a game first.')
+    return
+  }
   displaySuccessMsg('Got games!')
   const currGames = responseData.games
   store.user.games = currGames
@@ -129,6 +133,10 @@ const displayFailMsg = msg => {
 
 const onGetGamesFailure = responseData => {
   // Error msg
+  if(responseData.games.length === 0) {
+    displayFailMsg('Failed to get games, please create new game first.')
+    return
+  }
   displayFailMsg('Failed to get games, ' +
   responseData.status + ': ' +
   responseData.statusText)

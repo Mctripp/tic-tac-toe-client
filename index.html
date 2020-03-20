@@ -16,30 +16,30 @@
         <nav>
           <form id="sign-in">
             <button class="page1">Sign in</button>
-            <input class="page1" name="credentials[email]" type="text" value="email"
+            <input class="page1" name="credentials[email]" type="text" placeholder="email"
             autocomplete="username">
             <input class="page1 pw sign-in-pw" name="credentials[password]"
-            type="text" value="password" autocomplete="current-password">
+            type="text" placeholder="password" autocomplete="current-password">
           </form>
           <form id="sign-up">
             <button class="page1">Sign up</button>
-            <input class="page1" name="credentials[email]" type="text" value="email"
+            <input class="page1" name="credentials[email]" type="text" placeholder="email"
             autocomplete="username">
             <input class=" page1 pw sign-up-pw" name="credentials[password]"
-            type="text" value="password" autocomplete="new-password">
+            type="text" placeholder="password" autocomplete="new-password">
             <input class=" page1 pw sign-up-confirm"
             name="credentials[password_confirmation]" type="text"
-            value="confirm password" autocomplete="new-password">
+            placeholder="confirm password" autocomplete="new-password">
           </form>
           <form id="change-password">
-            <button class="faded page2" disabled>Change Password</button>
-            <input class="faded page2 pw change-pw-pw" name="passwords[old]" type="text"
-             value="password" autocomplete="current-password" disabled>
-            <input class="faded page2 pw change-pw-confirm" name="passwords[new]"
-            type="text" value="new password" autocomplete="new-password" disabled>
+            <button class="hidden page2" disabled>Change Password</button>
+            <input class="hidden page2 pw change-pw-pw" name="passwords[old]" type="text"
+             placeholder="password" autocomplete="current-password" disabled>
+            <input class="hidden page2 pw change-pw-confirm" name="passwords[new]"
+            type="text" placeholder="new password" autocomplete="new-password" disabled>
           </form>
           <form id="sign-out">
-            <button class="faded page2" disabled>Sign out</button>
+            <button class="hidden page2" disabled>Sign out</button>
           </form>
         </nav>
       </header>

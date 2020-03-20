@@ -11,11 +11,7 @@ const getFormFields = require('./../../../lib/get-form-fields.js')
 // explain them well enough
 
 const resetPwForms = () => {
-  $(".sign-in-pw").val("password")
-  $(".sign-up-pw").val("password")
-  $(".sign-up-confirm").val("confirm password")
-  $(".change-pw-pw").val("password")
-  $(".change-pw-confirm").val("new password")
+  $("input").val("")
   $(".sign-in-pw").attr("type","text")
   $(".sign-up-pw").attr("type","text")
   $(".sign-up-confirm").attr("type","text")
@@ -25,9 +21,9 @@ const resetPwForms = () => {
 
 const swapPage1To2 = () => {
   $('.welcome-text').addClass('hidden')
-  $('.page1').addClass('faded')
+  $('.page1').addClass('hidden')
   $('.page1').attr('disabled',true)
-  $('.page2').removeClass('faded')
+  $('.page2').removeClass('hidden')
   $('.page2').removeAttr('disabled')
   $('.scoreboard').removeClass('hidden')
   $('.error-message').addClass('hidden')
@@ -36,9 +32,9 @@ const swapPage1To2 = () => {
 
 const swapPage2To1 = () => {
   $('.welcome-text').removeClass('hidden')
-  $('.page2').addClass('faded')
+  $('.page2').addClass('hidden')
   $('.page2').attr('disabled',true)
-  $('.page1').removeClass('faded')
+  $('.page1').removeClass('hidden')
   $('.page1').removeAttr('disabled')
   $('.tictactoe').addClass('hidden')
   $('.game-options').addClass('hidden')
