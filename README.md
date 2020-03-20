@@ -14,6 +14,14 @@ This project uses all of the resources we have gathered from the first three wee
 
 ## User Stories
 
+A user should be able to:
+- Sign up, sign in, change their password, and sign out.
+- See the game board after signing in.
+- Create a new game
+- Fetch unfinished games
+- See their game stats
+- See results of their interactions through messages
+
 ## Approach
 
 I started by laying out the "skeletons" of each api.js, ui.js, and events.js files for both users and games: empty functions with names describing what they do.
