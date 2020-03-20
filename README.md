@@ -10,6 +10,8 @@ This project uses all of the resources we have gathered from the first three wee
 
 ## Wireframe
 
+[wireframe]: ./public/wireframe.jpg
+
 ## User Stories
 
 ## Approach
