@@ -12,11 +12,6 @@ const getFormFields = require('./../../../lib/get-form-fields.js')
 
 const resetPwForms = () => {
   $("input").val("")
-  $(".sign-in-pw").attr("type","text")
-  $(".sign-up-pw").attr("type","text")
-  $(".sign-up-confirm").attr("type","text")
-  $(".change-pw-pw").attr("type","text")
-  $(".change-pw-confirm").attr("type","text")
 } //resetPwForms
 
 const swapPage1To2 = () => {

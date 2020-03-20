@@ -20,5 +20,4 @@ $(() => {
   $('#get-games').on('click', gameEvents.onGetGames)
   $('#find-game').on('submit', gameEvents.onFindGame)
   $("input").on('click', function (event) {event.target.select()})
-  $(".pw").on('click', userEvents.onPwClick)
 })

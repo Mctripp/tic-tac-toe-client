@@ -52,17 +52,9 @@ const onChangePassword = event => {
     .catch(ui.onChangePasswordFailure)
 } // onChangePassword
 
-const onPwClick = event => {
-  // On select, change to PW field to hide text, remove text
-  event.preventDefault()
-  event.target.type = "password"
-  event.target.value = ""
-}
-
 module.exports = {
   onSignUp,
   onSignIn,
   onSignOut,
-  onChangePassword,
-  onPwClick
+  onChangePassword
 }
