@@ -1,7 +1,11 @@
 Tic-tac-toe game project
 ========================
 
-This project uses all of the resources we have gathered from the first three weeks in the program, namely: JavaScript, HTML, CSS, jQuery, and bootStrap.
+This project uses all of the resources we have gathered from the first three weeks in the program, namely:
+- JavaScript
+- HTML 
+- CSS/SASS
+- jQuery
 
 I started by laying out the "skeletons" of each api.js, ui.js, and events.js files for both users and games: empty functions with names describing what they do.
 
