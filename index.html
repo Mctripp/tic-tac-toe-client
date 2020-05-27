@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Tic-Tac-Toe Game</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+      <header>
+        <nav>
+          <form id="sign-in">
+            <button class="page1">Sign in</button>
+            <input class="page1" name="credentials[email]" type="text" placeholder="email"
+            autocomplete="username">
+            <input class="page1 pw sign-in-pw" name="credentials[password]"
+            type="password" placeholder="password" autocomplete="current-password">
+          </form>
+          <form id="sign-up">
+            <button class="page1">Sign up</button>
+            <input class="page1" name="credentials[email]" type="text" placeholder="email"
+            autocomplete="username">
+            <input class=" page1 pw sign-up-pw" name="credentials[password]"
+            type="password" placeholder="password" autocomplete="new-password">
+            <input class=" page1 pw sign-up-confirm"
+            name="credentials[password_confirmation]" type="password"
+            placeholder="confirm password" autocomplete="new-password">
+          </form>
+          <form id="change-password">
+            <button class="hidden page2" disabled>Change Password</button>
+            <input class="hidden page2 pw change-pw-pw" name="passwords[old]" type="password"
+             placeholder="password" autocomplete="current-password" disabled>
+            <input class="hidden page2 pw change-pw-confirm" name="passwords[new]"
+            type="password" placeholder="new password" autocomplete="new-password" disabled>
+          </form>
+          <form id="sign-out">
+            <button class="hidden page2" disabled>Sign out</button>
+          </form>
+        </nav>
+      </header>
+      <main>
+        <div class="text-block">
+          <h3 class="welcome-text">Welcome to Tic-tac-toe!<h3>
+          <h4 class="welcome-text">Please sign up or sign in above to begin.<h4>
+          <h4 class="error-message hidden">Error Message</h4>
+        </div>
+        <div class="tictactoe hidden">
+          <div id="box0" class="box box-top box-left diag-1">
+            <img class="hidden">
+          </div>
+          <div id="box1" class="box box-top box-mid-y">
+            <img class="hidden">
+          </div>
+          <div id="box2" class="box box-top box-right diag-2">
+            <img class="hidden">
+          </div>
+          <div id="box3" class="box box-left box-mid-x">
+            <img class="hidden">
+          </div>
+          <div id="box4" class="box box-mid-x box-mid-y diag-1 diag-2">
+            <img class="hidden">
+          </div>
+          <div id="box5" class="box box-right box-mid-x">
+            <img class="hidden">
+          </div>
+          <div id="box6" class="box box-bottom box-left diag-2">
+            <img class="hidden">
+          </div>
+          <div id="box7" class="box box-bottom box-mid-y">
+            <img class="hidden">
+          </div>
+          <div id="box8" class="box box-bottom box-right diag-1">
+            <img class="hidden">
+          </div>
+        </div>
+      </main>
+      <div class="game-options hidden">
+        <button id="new-game" type="button" name="button">Create new game</button>
+        <button id="get-games" type="button" name="button">Get games</button>
+        <form id="find-game" class="hidden">
+          <button>Find game</button>
+          <select class="dropdown">
+            <option value="default">Select game by ID...</option>
+          </select>
+        </form>
+      </div>
+      <p class="scoreboard hidden">Create a new game, then click "Get games" to see user info.</p>
+      <footer>
+        <p>
+          mike tripp on:
+          <a href="https://github.com/Mctripp/tic-tac-toe-client" target="_blank">github</a> ||
+          <a href="https://www.linkedin.com/in/michael-casey-tripp/" target="_blank">linkedIn</a> ||
+          <a href="#">? ? ?</a>
+        </p>
+      </footer>
+    </body>
+</html>
